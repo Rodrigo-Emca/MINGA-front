@@ -1,16 +1,15 @@
 .contenedorGeneral{
-    border: red 2px solid;
+    /* border: yellow 2px solid; */
     display: flex;
     flex-direction: column;
     align-items: center;
     /*configurar correctamente la altura */
-    min-height: 140vh;
-    position: relative;
-    top: 6rem;
+    /* min-height: 140vh; */
+    
 }
 
 .primerContenedor{
-    border: blueviolet 2px solid;
+    /* border: blueviolet 2px solid; */
     width: 60%;
     height: 80%;
 
@@ -29,12 +28,12 @@
     height: 45%;
     align-items: center;
     justify-content: center;
-
-    border: green 2px solid;
+/* 
+    border: green 2px solid; */
 }
 
 .conenedorDeBotones{
-    border: yellow 2px solid;
+    /* border: yellow 2px solid; */
     width: 60%;
 
     display: flex;
@@ -49,19 +48,39 @@
     left: 20px;
     top: 703px;
 
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: white;
+
     background: #F97316;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
 }
 
+.ocultar{
+    display: none;
+}
+
 .contenedorDescription{
-    border: palevioletred 2px solid;
-    width: 90%;
+    /* border: palevioletred 2px solid; */
+    width: 95%;
+
+    text-align: justify;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #424242;
 }
 
 .contenedorChapters{
-    border: red 2px solid;
-    width: 60%;
+    /* border: red 2px solid; */
+    width: 80%;
 
     display: flex;
     flex-direction: column;
@@ -72,13 +91,28 @@
 
 .innerContenedorChapter{
     display: flex;
-    border: blue 2px solid;
+    /* border: blue 2px solid; */
     padding: 1rem;
-    width: 70vw;
+    width: 80vw;
     
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.ChapterInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
 }
 
 .chapterImage{
@@ -96,4 +130,66 @@
     /* primary two design */
     background: #F97316;
     border-radius: 50000px;
+}
+
+@media (max-width:767px ) {
+    .conenedorDeBotones{
+        width: 90%;
+    }
+
+    .contenedorDescription{
+        /* border: palevioletred 2px solid; */
+        width: 95%;
+    
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #424242;
+    }
+
+    .contenedorChapters{
+        /* border: red 2px solid; */
+        width: 100vw;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .innerContenedorChapter{
+        display: flex;
+        padding: 0.5rem;
+        width: 90vw;
+        gap: 1rem;
+
+        /* border: #F97316 2px solid; */
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .ChapterInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        text-align: center;
+    
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30px;
+    
+        color: #000000;
+    }
+
+    .chapterImage{
+        width: 7rem;
+        height: 7rem;
+    }
 }

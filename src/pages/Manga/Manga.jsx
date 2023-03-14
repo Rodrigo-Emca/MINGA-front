@@ -9,18 +9,17 @@ import CHAPTERStats from "../../images/CHAPTERStats.png";
 import CHAPTERreactions from "../../images/CHAPTERreactions.png";
 import { store } from "../../store/store";
 const {get_manga} = getManga
-const {get_chapter} = getChapters
+const {get_chapters} = getChapters
 
 
 export default function Manga() {
     const { id } = useParams();
+    const { page } = useParams();
     const dispatch = useDispatch()
     const [MANGA, setManga] = useState(null);
 
-    console.log(useSelector(store=>store))
-
     useEffect(() => {
-        dispatch(get_manga({inputId: id}))
+        dispatch(get_manga({inputId: id, inputPage: page}))
         .then((response) => {
             setManga(response.payload.manga);
         })
@@ -29,16 +28,16 @@ export default function Manga() {
         });
     }, []);
 
-    let titleManga = MANGA ? MANGA.title : "";
-    let descriptionManga = MANGA ? MANGA.decription : "";
-    let imageManga = MANGA ? MANGA.cover_photo : "";
+    let titleManga = useSelector(store=>store.manga.manga.title);
+    let descriptionManga = useSelector(store=>store.manga.manga.decription);
+    let imageManga =useSelector(store=>store.manga.manga.cover_photo);
 
     const [CHAPTERS, setChapters] = useState(null);
     const [mostrarChapters, setMostrarChapters] = useState(false);
-    
+
     //Para mostrar los detalles cada vez que se aprete el boton MANGA.
     const handleMostrarDetallesClick = () => {
-        dispatch(get_manga({inputId: id}))
+        dispatch(get_manga({inputId: id, inputPage: page}))
         .then((response) => {
             setManga(response.payload.manga);
             setMostrarChapters(false);
@@ -50,7 +49,7 @@ export default function Manga() {
     
     //Para mostrar los capitulos cada vez que se aprete el boton CHAPTERS.
     const handleMostrarChaptersClick = () => {
-        dispatch(get_chapter({inputId: id}))
+        dispatch(get_chapters({inputId: id, inputPage: page}))
         .then((response) => {
             setChapters(response.payload.chapters);
             setMostrarChapters(true);
@@ -58,6 +57,34 @@ export default function Manga() {
         .catch((error) => {
             console.log(error);
         });
+    };
+
+    const handlePrevPage = () => {
+        if (page > 1) {
+            const newPage = parseInt(page) - 1;
+            window.location.href = `/manga/${id}/${newPage}`;
+            dispatch(get_chapters({ inputId: id, inputPage: newPage }))
+                .then((response) => {
+                    setChapters(response.payload.chapters);
+                    setMostrarChapters(true);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    }
+
+    const handleNextPage = () => {
+        const newPage = parseInt(page) + 1;
+        window.location.href = `/manga/${id}/${newPage}`;
+        dispatch(get_chapters({ inputId: id, inputPage: newPage }))
+            .then((response) => {
+                setChapters(response.payload.chapters);
+                setMostrarChapters(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
     
     return (
@@ -85,9 +112,7 @@ export default function Manga() {
 
             {!mostrarChapters && (
                 <div className="contenedorDescription">
-                    <div>
-                        <p>{descriptionManga}</p>
-                    </div>
+                    <p>{descriptionManga}</p>
                 </div>
             )}
             {mostrarChapters && (
@@ -96,13 +121,21 @@ export default function Manga() {
                         {CHAPTERS && CHAPTERS.map((chapter, index) => (
                             <div key={index} className="innerContenedorChapter">
                                 <img src={imageManga} alt={chapter.title}  className="chapterImage"/>
-                                <div>
-                                    <p>Title: {chapter.title}</p>
-                                    <p>Order: {chapter.order}</p>
+                                <div className="ChapterInfo">
+                                    <p>Chapter #{chapter.order}:</p>
+                                    <p>{chapter.title}</p>
                                 </div>
-                                <Anchor to={"/chapter/"+id} className='btn-read'>Read</Anchor>
+                                <Anchor to={"/chapter/"+chapter._id} className='btn-read'>Read</Anchor>
                             </div>
                         ))}
+                    </div>
+                    <div className="conenedorDeBotones">
+                        <button onClick={handlePrevPage} className={`botones ${page === '1' ? 'ocultar' : ''}`}>
+                        Prev
+                        </button>
+                        <button onClick={handleNextPage} className="botones">
+                        Next
+                        </button>
                     </div>
                 </div>
             )}

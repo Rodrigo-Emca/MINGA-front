@@ -1,11 +1,5 @@
+
 .MainLayout{
-    border: yellow 2px solid;
     display: flex;
     flex-direction: column;
-    min-height: auto;
-}
-
-.footer{
-    border: green 2px solid;
-    position: relative;
 }

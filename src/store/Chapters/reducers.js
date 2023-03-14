@@ -1,16 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
 import chapterActions from './actions'
-const { get_chapter } = chapterActions
+const { get_chapters } = chapterActions
 
 const initialState = {
-    chapter: []
+    chapters: []
 }
 
 const reducer = createReducer(
     initialState,
     (builder) => builder
         .addCase(
-            get_chapter.fulfilled,
+            get_chapters.fulfilled,
             (state, action) => {
                 let newState = {
                     ...state,
