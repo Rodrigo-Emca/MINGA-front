@@ -15,19 +15,4 @@ const authorSlice = createSlice({
 export const { setAuthor, clearAuthor } = authorSlice.actions;
 export default authorSlice.reducer;
 
-// Reducer para los comics
-const comicsSlice = createSlice({
-  name: "comics",
-  initialState: { order: "asc", active: true },
-  reducers: {
-    toggleOrder: (state) => {
-      return { ...state, order: state.order === "asc" ? "desc" : "asc" };
-    },
-    toggleActive: (state) => {
-      return { ...state, active: !state.active };
-    },
-  },
-});
-
-export const { toggleOrder, toggleActive } = comicsSlice.actions;
 

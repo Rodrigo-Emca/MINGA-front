@@ -68,7 +68,9 @@ function AuthorPage() {
                 alt={manga.title}
                 className="manga-cover"
               />
+               <a href="#" className="details">Watch details!</a>
               <p className="manga-title">{manga.title}</p>
+             
             </div>
           ))
         ) : (

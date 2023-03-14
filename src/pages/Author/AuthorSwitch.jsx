@@ -8,9 +8,9 @@ setIsNew(!isNew);
 return (
 <div className='switch-container'>
 <p className='new'>New</p>
-<label className='slider round'>
-<input type="checkbox" checked={isNew} onChange={handleChange} className="switch"/>
-</label>
+
+<input type="checkbox" checked={isNew} onChange={handleChange} className="switch" id='switch'/>
+<label htmlFor="switch" className='slider'></label>
 <p className='new'>Old</p>
 </div>
 );
