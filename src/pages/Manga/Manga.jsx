@@ -13,56 +13,57 @@ const {get_chapters} = getChapters
 
 
 export default function Manga() {
-    const { id } = useParams();
-    const { page } = useParams();
-    const dispatch = useDispatch()
+    const { id, page } = useParams();
+    const dispatch = useDispatch();
     const [MANGA, setManga] = useState(null);
-
-    useEffect(() => {
-        dispatch(get_manga({inputId: id, inputPage: page}))
-        .then((response) => {
-            setManga(response.payload.manga);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }, []);
-
-    let titleManga = useSelector(store=>store.manga.manga.title);
-    let descriptionManga = useSelector(store=>store.manga.manga.decription);
-    let imageManga =useSelector(store=>store.manga.manga.cover_photo);
-
     const [CHAPTERS, setChapters] = useState(null);
     const [mostrarChapters, setMostrarChapters] = useState(false);
+    const [currentPage, setCurrentPage] = useState(page);
 
-    //Para mostrar los detalles cada vez que se aprete el boton MANGA.
+    useEffect(() => {
+        dispatch(get_manga({ inputId: id, inputPage: currentPage }))
+            .then((response) => {
+                setManga(response.payload.manga);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [id, currentPage]);
+
+    let titleManga = useSelector((store) => store.manga.manga.title);
+    let descriptionManga = useSelector(
+        (store) => store.manga.manga.decription
+    );
+    let imageManga = useSelector(
+        (store) => store.manga.manga.cover_photo
+    );
+
     const handleMostrarDetallesClick = () => {
-        dispatch(get_manga({inputId: id, inputPage: page}))
-        .then((response) => {
-            setManga(response.payload.manga);
-            setMostrarChapters(false);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+        dispatch(get_manga({ inputId: id, inputPage: currentPage }))
+            .then((response) => {
+                setManga(response.payload.manga);
+                setMostrarChapters(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
-    
-    //Para mostrar los capitulos cada vez que se aprete el boton CHAPTERS.
+
     const handleMostrarChaptersClick = () => {
-        dispatch(get_chapters({inputId: id, inputPage: page}))
-        .then((response) => {
-            setChapters(response.payload.chapters);
-            setMostrarChapters(true);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+        dispatch(get_chapters({ inputId: id, inputPage: currentPage }))
+            .then((response) => {
+                setChapters(response.payload.chapters);
+                setMostrarChapters(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     const handlePrevPage = () => {
-        if (page > 1) {
-            const newPage = parseInt(page) - 1;
-            window.location.href = `/manga/${id}/${newPage}`;
+        if (currentPage > 1) {
+            const newPage = parseInt(currentPage) - 1;
+            setCurrentPage(newPage);
             dispatch(get_chapters({ inputId: id, inputPage: newPage }))
                 .then((response) => {
                     setChapters(response.payload.chapters);
@@ -72,11 +73,11 @@ export default function Manga() {
                     console.log(error);
                 });
         }
-    }
+    };
 
     const handleNextPage = () => {
-        const newPage = parseInt(page) + 1;
-        window.location.href = `/manga/${id}/${newPage}`;
+        const newPage = parseInt(currentPage) + 1;
+        setCurrentPage(newPage);
         dispatch(get_chapters({ inputId: id, inputPage: newPage }))
             .then((response) => {
                 setChapters(response.payload.chapters);
@@ -119,21 +120,23 @@ export default function Manga() {
                 <div className="contenedorChapters">
                     <div>
                         {CHAPTERS && CHAPTERS.map((chapter, index) => (
-                            <div key={index} className="innerContenedorChapter">
-                                <img src={imageManga} alt={chapter.title}  className="chapterImage"/>
-                                <div className="ChapterInfo">
-                                    <p>Chapter #{chapter.order}:</p>
-                                    <p>{chapter.title}</p>
+                            <div>
+                                <div key={index} className="innerContenedorChapter">
+                                    <img src={imageManga} alt={chapter.title}  className="chapterImage"/>
+                                    <div className="ChapterInfo">
+                                        <p>Chapter #{chapter.order}:</p>
+                                        <p>{chapter.title}</p>
+                                    </div>
+                                    <Anchor to={"/chapter/"+chapter._id} className='btn-read'>Read</Anchor>
                                 </div>
-                                <Anchor to={"/chapter/"+chapter._id} className='btn-read'>Read</Anchor>
                             </div>
                         ))}
                     </div>
                     <div className="conenedorDeBotones">
-                        <button onClick={handlePrevPage} className={`botones ${page === '1' ? 'ocultar' : ''}`}>
+                        <button onClick={handlePrevPage} className={`botones ${currentPage === '1' ? 'ocultar' : ''}`}>
                         Prev
                         </button>
-                        <button onClick={handleNextPage} className="botones">
+                        <button onClick={handleNextPage} className={`botones ${CHAPTERS.length < '4' ? 'ocultar' : ''}`}>
                         Next
                         </button>
                     </div>
