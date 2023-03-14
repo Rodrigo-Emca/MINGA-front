@@ -4,6 +4,7 @@ import './MangaCard.css'
 export default function MangaCard(props) {
   return (
     <div className='card-container'>
+      <span className='span'></span>
       <div className='inf-card'>
         <h2 className='title-card'>{props.title}</h2>
         <h3 className='category-card'>{props.category_.name}</h3>

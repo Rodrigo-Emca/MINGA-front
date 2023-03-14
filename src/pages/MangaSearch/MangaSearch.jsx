@@ -33,7 +33,7 @@ export default function Index() {
   return (
     <div className='manga-cont'>
       <div className='search-manga'>
-        <h2 className='title-page'>Manga</h2>
+        <h2 className='title-page'>Mangas</h2>
         <div className='container-searh-manga'>
           <form className='form' >
             <input className="input" type="text" ref={text} defaultValue={defaultText} name="text" id="text" placeholder='Find your manga here' onChange={hadleChange} />
