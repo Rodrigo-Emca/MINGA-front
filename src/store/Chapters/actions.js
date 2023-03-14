@@ -1,22 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const get_manga = createAsyncThunk(
-    'get_manga',
+const get_chapter = createAsyncThunk(
+    'get_chapter',
     async({ inputId }) => {
         try {
-            let response = await axios.get('http://localhost:8000/mangas/:id?_id='+inputId)
+            let response = await axios.get('http://localhost:8000/chapters/chapters?manga_id='+inputId)
             return {
-                manga: response.data.mangas
+                chapters: response.data.chapters
             }
         } catch (error) {
             console.log('No se ha podido traer el pedido')
             return {
-                manga: []
+                chapters: []
             }
         }
     }
 )
 
-const actions = { get_manga }
+const actions = { get_chapter }
 export default actions

@@ -5,15 +5,15 @@
     align-items: center;
     /*configurar correctamente la altura */
     min-height: 140vh;
+    position: relative;
+    top: 6rem;
 }
 
 .primerContenedor{
     border: blueviolet 2px solid;
     width: 60%;
     height: 80%;
-    
-    position: relative;
-    top: 6rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,9 +41,6 @@
     justify-content: space-evenly;
     gap: 1rem;
     padding: 1rem;
-
-    position: relative;
-    top: 6rem;
 }
 
 .botones{
@@ -60,17 +57,11 @@
 .contenedorDescription{
     border: palevioletred 2px solid;
     width: 90%;
-
-    position: relative;
-    top: 6rem
 }
 
 .contenedorChapters{
     border: red 2px solid;
     width: 60%;
-
-    position: relative;
-    top: 6rem;
 
     display: flex;
     flex-direction: column;

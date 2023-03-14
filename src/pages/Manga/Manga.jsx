@@ -2,21 +2,27 @@ import React, { useState, useEffect } from "react";
 import "./manga.css";
 import { useParams } from "react-router-dom";
 import { Link as Anchor } from 'react-router-dom'
-import axios from "axios";
-
+import { useSelector,useDispatch } from "react-redux";
+import getManga from '../../store/Manga/actions'
+import getChapters from '../../store/Chapters/actions'
 import CHAPTERStats from "../../images/CHAPTERStats.png";
 import CHAPTERreactions from "../../images/CHAPTERreactions.png";
+import { store } from "../../store/store";
+const {get_manga} = getManga
+const {get_chapter} = getChapters
+
 
 export default function Manga() {
     const { id } = useParams();
-    const URLpeticionManga = "http://localhost:8000/mangas/:_id?_id=";
+    const dispatch = useDispatch()
     const [MANGA, setManga] = useState(null);
 
+    console.log(useSelector(store=>store))
+
     useEffect(() => {
-        axios
-        .get(URLpeticionManga + id)
+        dispatch(get_manga({inputId: id}))
         .then((response) => {
-            setManga(response.data.mangas);
+            setManga(response.payload.manga);
         })
         .catch((error) => {
             console.log(error);
@@ -27,16 +33,14 @@ export default function Manga() {
     let descriptionManga = MANGA ? MANGA.decription : "";
     let imageManga = MANGA ? MANGA.cover_photo : "";
 
-    const URLpeticionChapters = "http://localhost:8000/chapters/chapters?manga_id=";
     const [CHAPTERS, setChapters] = useState(null);
     const [mostrarChapters, setMostrarChapters] = useState(false);
     
     //Para mostrar los detalles cada vez que se aprete el boton MANGA.
     const handleMostrarDetallesClick = () => {
-        axios
-        .get(URLpeticionManga + id)
+        dispatch(get_manga({inputId: id}))
         .then((response) => {
-            setManga(response.data.mangas);
+            setManga(response.payload.manga);
             setMostrarChapters(false);
         })
         .catch((error) => {
@@ -46,10 +50,9 @@ export default function Manga() {
     
     //Para mostrar los capitulos cada vez que se aprete el boton CHAPTERS.
     const handleMostrarChaptersClick = () => {
-        axios
-        .get(URLpeticionChapters + id)
+        dispatch(get_chapter({inputId: id}))
         .then((response) => {
-            setChapters(response.data.chapters);
+            setChapters(response.payload.chapters);
             setMostrarChapters(true);
         })
         .catch((error) => {
@@ -79,6 +82,7 @@ export default function Manga() {
                 CHAPTERS
                 </button>
             </div>
+
             {!mostrarChapters && (
                 <div className="contenedorDescription">
                     <div>
@@ -86,7 +90,6 @@ export default function Manga() {
                     </div>
                 </div>
             )}
-
             {mostrarChapters && (
                 <div className="contenedorChapters">
                     <div>
