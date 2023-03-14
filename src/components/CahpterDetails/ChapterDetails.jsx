@@ -10,43 +10,48 @@ import comentarios from '../../images/comentarios.svg'
 export default function ChapterDetails() {
     let navigate = useNavigate()
     let { id, page } = useParams()
-    let url = `http://localhost:8000/chapters/${id}`
-    let [Chapters, setChapter] = useState([])
+    let url = `http://localhost:8000/chapters/`
+    let [Chapter, setChapter] = useState({})
     let [index, setIndex] = useState(Number(page))
+    let [next, setNext] = useState('')
+    let [prev, setPrev] = useState('')
 
     useEffect(() => {
-        axios.get(url).then(res => {
-            setChapter(res.data.Chapters);
-            setIndex(Number(page));
+        axios.get(url + id).then(res => {
+            setChapter(res.data.chapter);
+            setIndex(Number(page))
+            setNext(res.data.next)
+            setPrev(res.data.prev);
         }).catch(error => console.log(error));
-    }, [id, page]);
+    }, []);
 
+    
     function handlePrev(e) {
-        if (index <= 0) {
+        setIndex(index - 1);
+        navigate(`/chapters/${id}/${index - 1}`);
+
+        if ((index <= 0) && (Chapter.order === 1)) {
             navigate('/mangas/:page');
-        } else {
-            setIndex(index - 1);
-            navigate(`/chapters/${id}/${index - 1}`);
+        }else if (index <= 0){
+            navigate(`/chapters/${prev}/0`)
+            window.location.reload(true)
         }
     }
 
 
     function handleNext(e) {
-        if (index + 1 > Chapters?.pages?.length - 1) {
-            return navigate(`/chapters/640a29d7aa914d6b7c584714/0`)
+        setIndex(index + 1)
+        navigate(`/chapters/${id}/${index + 1}`)
+        if (index >= Chapter.pages.length - 1) {
+            navigate(`/chapters/${next}/0`)
+            window.location.reload(true)
         }
-        setIndex(index + 1);
-        if (index + 1 === Chapters?.pages?.length) {
-            return navigate(`/chapters/${id}/0`);
-        }
-        return (navigate(`/chapters/${id}/${index + 1}`))
     }
 
-    console.log(Chapters)
     return (
         <div className='div-chapter'>
             <div className='chapter'>
-                <p className='parrafo-chapter'> Capítulo {Chapters.order}, {Chapters.title} </p>
+                <p className='parrafo-chapter'> Capítulo {Chapter.order}, {Chapter.title} </p>
             </div>
             <div className='btnArrow btnNext' onClick={handleNext}>
                 <img src={Arrowr} alt='arrowr' />
@@ -55,7 +60,7 @@ export default function ChapterDetails() {
                 <img src={Arrowl} alt='arrowl' />
             </div>
             <div className='div-page'>
-                <img src={Chapters?.pages?.[page]} alt="" />
+                <img src={Chapter?.pages?.[page]} alt="" />
             </div>
             <div className='div-comentario'>
                 <img src={comentarios} alt='icono-comentarios' />
