@@ -4,14 +4,16 @@ import axios from 'axios'
 import MangaCard from '../../components/MangaCard/MangaCard'
 import './mangaSearch.css'
 import MangaChecks from '../../components/MangaChecks/MangaChecks'
-import textActions from '../../store/Text/actions'
-
-const { capture } = textActions
+import textActions from '../../store/Text/actions' 
+const { capture } = textActions 
 
 export default function Index() {
   const [data, setData] = useState([])
   const [reload, setReload] = useState(false)
   const dispatch = useDispatch()
+
+  console.log(useSelector(store =>store))
+
   const defaultText = useSelector(store => store.text.text)
   const text = useRef("")
 
@@ -23,9 +25,9 @@ export default function Index() {
     [reload,checksValues]
   )
 
-  function hadleChange() {
-    setReload(!reload)
-    dispatch(capture({ text: text.current.value }))
+  function hadleChange() { 
+    setReload(!reload)  
+    dispatch(capture({ text: text.current.value })) 
   }
   console.log(data)
 
@@ -35,7 +37,7 @@ export default function Index() {
       <div className='search-manga'>
         <h2 className='title-page'>Mangas</h2>
         <div className='container-searh-manga'>
-          <form className='form' >
+          <form className='form' >                                                                                                          
             <input className="input" type="text" ref={text} defaultValue={defaultText} name="text" id="text" placeholder='Find your manga here' onChange={hadleChange} />
           </form>
         </div>
