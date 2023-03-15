@@ -19,13 +19,12 @@ export default function FormularioSignIn() {
                 [email.current.name]: email.current.value,
                 [password.current.name]: password.current.value
             }
-            console.log(data)
+            //console.log(data)
             let url_signIn = 'http://localhost:8000/auth/signin'
             try {
                 await axios.post(url_signIn, data)
-
                 .then(res => {
-                    console.log(res)
+                    //console.log(res)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('user', JSON.stringify({
                         name: res.data.name,
@@ -50,6 +49,7 @@ export default function FormularioSignIn() {
                 })
             }
         }
+
 
     return (
     <form className='FormularioRegistro' onSubmit={handleSubmit}>
