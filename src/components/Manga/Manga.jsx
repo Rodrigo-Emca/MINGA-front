@@ -4,11 +4,11 @@ import './manga.css'
 import MangaCard from '../MangaCard/MangaCard'
 import MangaChecks from '../MangaChecks/MangaChecks'
 import { useSelector,useDispatch } from 'react-redux'
+
 import textActions from '../../store/Search/actions'
 import mangasActions from '../../store/Mangas/actions'
 const {captureText} = textActions
 const {read_mangas} = mangasActions
-
 
 
 export default function Manga() {
@@ -36,6 +36,7 @@ export default function Manga() {
         },
         [page,defaultText,defaultChecks,reload]
     )
+
 
 
     function handleChange(){

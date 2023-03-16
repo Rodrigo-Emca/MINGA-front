@@ -7,8 +7,9 @@ import alertReducer from './Alert/reducer'
 export const store = configureStore({
     reducer:{
         text: textReducer,
-        mangas: mangasReducer,
+        mangas: mangaReducer,
         checks: checkReducer, 
         alert: alertReducer
     }
 })
+
