@@ -27,9 +27,11 @@ function AuthorForm() {
       birthdate: birthdateRef.current.value,
       imageUrl: imageUrlRef.current.value,
     };
-
+    // obtener headers localStorage
+      let token = localStorage.getItem('token')
+      let headers = {headers: {'Authorization': `Bearer ${token}`}}
     axios
-      .post("http://localhost:8080/api/authors", author)
+      .post("http://localhost:8000/api/authors", author, headers)
       .then((response) => {
         setAuthorCreated(true);
         console.log(response.data);
