@@ -5,9 +5,10 @@ import MangaCard from '../MangaCard/MangaCard'
 import MangaChecks from '../MangaChecks/MangaChecks'
 import { useSelector,useDispatch } from 'react-redux'
 import textActions from '../../store/search/actions'
-import eventActions from '../../store/Events/actions'
+import mangaActions from '../../store/Mangas/actions'
 const {captureText} = textActions
-const {read_events} = eventActions
+const {read_mangas} = mangaActions
+
 
 
 
@@ -31,10 +32,11 @@ export default function Manga() {
 
     useEffect(
         () => {
-            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
+            dispatch(read_mangas({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
         },
         [page,defaultText,defaultChecks,reload]
     )
+
 
 
     function handleChange(){

@@ -1,21 +1,21 @@
 import { createReducer } from "@reduxjs/toolkit";
-import eventsActions from './actions'
+import mangasActions from './actions'
 
-const {read_events} = eventsActions
+const {read_mangas} = mangasActions
 
 const initialState ={
-    events: []
+    mangas: []
 }
 
 const reducer = createReducer(
     initialState,
     (builder) => builder
     .addCase(
-        read_events.fulfilled,
+        read_mangas.fulfilled,
         (state,actions)=>{
             let newState = {
                 ...state,
-                events: actions.payload.events
+                mangas: actions.payload.events
             }
             return newState
         }
@@ -23,3 +23,4 @@ const reducer = createReducer(
 )
 
 export default reducer
+
