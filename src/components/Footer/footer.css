@@ -119,6 +119,12 @@
 
 
 @media (min-width: 300px) and (max-width: 767px){
+    .Img-box {
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 20vh;
+    }
     .foot-final{
         flex-direction: column;
         gap: 2rem;
