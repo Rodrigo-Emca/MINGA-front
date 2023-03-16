@@ -1,62 +1,64 @@
 import React from 'react'
 import './MangaChecks.css'
-import axios from 'axios'
+import axios from 'axios';
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import checksAction from '../../store/checks/actions'
+import { useDispatch,useSelector } from 'react-redux'
+import checkActions from '../../store/checks/actions'
+const {captureChecks} = checkActions
 
-let { captureChecks} =checksAction
+export default function MangaChecks(props) {
 
-export default function MangaChecks() {
-  let dispatch = useDispatch()
+  const dispatch = useDispatch()
+  let url = 'http://localhost:8000/mangas'
 
-  let url = "http://localhost:8000/mangas"
+    let [ categories, setCategories ] = useState([])
+        useEffect(
+            () => {
+                axios.get(url)
+                .then( response => setCategories( response.data.categories ) )
+                .catch(e => {
+                console.log(e);
+            })
+            },
+            [url]
+        )
 
-    let [categories, setCategories] = useState([])
+        let category_name=categories.map(cat => cat.name)
+        let category_id=categories.map(cat => cat._id)
 
-    useEffect(
-        () => {
-            axios.get(url)
-            .then( response => setCategories(response.data.categories)
-            ).catch(e => console.log(e))
-        },[]
-    )
-   
-    let categories_name = categories.map(e => e.name)
-    //console.log(categories_name)
-    let categories_id = categories.map(e => e._id)
-    
-    const checks_value = useSelector(store=> store.checks.checks)
+        const checkboxValues = useSelector(store => store.checks.checks);
+        
 
-    const checks = (e)=> {
-      const value = e.target.value
-      let newValues
-      if(checks_value.includes(value)){
-        newValues = checks_value.filter(val => val!== value)
-      }else{
-        newValues = [...checks_value, value]
-      }
-      dispatch(captureChecks({inputCheck: newValues}))
-      
-    }
-   console.log(useSelector(store=> store.checks.checks))
+        const handleCheck = (event) => {
+          const { value } = event.target;
+          let newValues;
+          if (checkboxValues.includes(value)) {
+              newValues = checkboxValues.filter(v => v !== value);
+          } else {
+              newValues = [...checkboxValues, value];
+          }
+          dispatch(captureChecks({inputCheck:newValues}));
+          
+      };
+
+  
   return (
-    <div className='check-container'>
-        <label className='checksA' htmlFor="All">All</label>
-        <input className='input-check' type="checkbox" name="All" id="All" value="" onChange={checks}/>
+    <form className='form-checks' ref={props.parentref} >
+        <label className={`class-checks1 ${checkboxValues.includes('')? 'select-checks1':''}`} htmlFor="All">All</label>
+        <input className='input-checks' type="checkbox" name="All" id="All" value={''} defaultChecked={checkboxValues.includes('')} onChange={handleCheck}/>
 
-        <label className='checksB' htmlFor={categories_name[0]}>{categories_name[0]}</label>
-        <input className='input-check' type="checkbox" name={categories_name[0]} id={categories_name[0]} value={categories_id[0]}onChange={checks}/>
+        <label className={`class-checks2 ${checkboxValues.includes(category_id[0])? 'select-checks2':''}`} htmlFor={category_name[0]}>{category_name[0]}</label>
+        <input className='input-checks' type="checkbox" name={category_name[0]} id={category_name[0]} value={category_id[0]} defaultChecked={checkboxValues.includes(category_id[0])} onChange={handleCheck}/>
 
-        <label className='checksC' htmlFor={categories_name[1]}>{categories_name[1]}</label>
-        <input className='input-check' type="checkbox" name={categories_name[1]} id={categories_name[1]} value={categories_id[1]} onChange={checks}/>
+        <label className={`class-checks3 ${checkboxValues.includes(category_id[1])? 'select-checks3':''}`} htmlFor={category_name[1]}>{category_name[1]}</label>
+        <input className='input-checks' type="checkbox" name={category_name[1]} id={category_name[1]} value={category_id[1]} defaultChecked={checkboxValues.includes(category_id[1])} onChange={handleCheck}/>
+        
+        <label className={`class-checks4 ${checkboxValues.includes(category_id[2])? 'select-checks4':''}`} htmlFor={category_name[2]}>{category_name[2]}</label>
+        <input className='input-checks' type="checkbox" name={category_name[2]} id={category_name[2]} value={category_id[2]} defaultChecked={checkboxValues.includes(category_id[2])} onChange={handleCheck}/>
 
-        <label className='checksD' htmlFor={categories_name[2]}>{categories_name[2]}</label>
-        <input className='input-check' type="checkbox" name={categories_name[2]} id={categories_name[2]} value={categories_id[2]}onChange={checks} />
+        <label className={`class-checks5 ${checkboxValues.includes(category_id[3])? 'select-checks5':''}`} htmlFor={category_name[3]}>{category_name[3]}</label>
+        <input className='input-checks' type="checkbox" name={category_name[3]} id={category_name[3]} value={category_id[3]} defaultChecked={checkboxValues.includes(category_id[3])} onChange={handleCheck} />
 
-        <label className='checksE' htmlFor={categories_name[3]}>{categories_name[3]}</label>
-        <input className='input-check' type="checkbox" name={categories_name[3]} id={categories_name[3]} value={categories_id[3]}onChange={checks} />
-    </div>
+    </form>
   )
 }
-

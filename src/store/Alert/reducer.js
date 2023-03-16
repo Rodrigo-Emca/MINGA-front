@@ -5,7 +5,7 @@ const { open,close } = alertActions
 
 const initialState = {
     visible: false,
-    icon: 'success',
+    icon: 'warning',
     text: ''
 }
 

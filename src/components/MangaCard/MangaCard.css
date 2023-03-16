@@ -1,4 +1,3 @@
-
 .card-container{
     width: 22rem;
     height: 11rem;
@@ -8,11 +7,18 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
     border-radius: 10px;
 }
+.span-card{
+    height: 17.78vh;
+    width: 0.4vw;
+    background: #F97316;
+}
+
 .span{
     height: 9rem;
     width: 0.3rem;
     background: #F97316;
 }
+
 .inf-card{
     width: 11rem;
     height: 11rem;
@@ -22,16 +28,15 @@
     gap: 1vh;
     padding-left: 1.5vh;
     padding-top: 6vh;
-   /*  border: 1px solid red; */
 }
 .img-card{
-   width: 12rem;
-   height: 11rem;
-   object-fit: cover;
-   object-position: center;
+    width: 12rem;
+    height: 11rem;
+    object-fit: cover;
+    object-position: center;
     border-radius: 90px 10px 10px 90px;
+    
 }
-
 
 .title-card{
     width: 10rem;
@@ -42,7 +47,6 @@
     font-size: 18px;
     position:relative;
     top:3.7rem;
-    /* border: 1px solid red; */
 }
 .category-card{
     font-family:Arial, Helvetica, sans-serif;
@@ -52,7 +56,14 @@
     color: #F97316;
     position:relative;
     bottom: 2.5rem;
-   /*  border: 1px solid red; */
+}
+
+.type-card{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 95.19%;
 }
 .btn-card{
     width: 92px;
@@ -74,53 +85,80 @@
     cursor: pointer;
     position:relative;
     bottom: 3rem;
-    right: 2.3rem;
-    /* border: 1px solid red; */
 }
+
+
+
+.red-span{
+    background-color:#EF8481 ;
+}
+.orange-span{
+    background-color:#FC9C57 ;
+}
+.green-span{
+    background-color:#00BA88 ;
+}
+.purple-span{
+    background-color:#8883F0;
+}
+
+.red-type{
+    color: #EF8481;
+}
+.orange-type{
+    color: #FC9C57;
+}
+.green-type{
+    color: #00BA88;
+}
+.purple-type{
+    color: #8883F0;
+}
+
 
 @media (max-width:1023px){
     .card{
-        width: 50rem;
+        width: 50vw;
     }
-    .span{
-        width: 0.5rem;
+    .span-card{
+        width: 0.8vw;
     }
     .inf-card{
-        width: 25rem;
+        width: 25vw;
     }
     .img-card{
-       width: 25rem;
+        width: 25vw;
     }
 }
 
 @media (max-width:767px){
     .card{
-        width: 80rem;
+        width: 80vw;
     }
-    .span{
-       width: 1rem;
+    .span-card{
+        width: 0.8vw;
     }
     .inf-card{
         width: 30vw;
     }
     .img-card{
-        width: 30rem;
+        width: 32vw;
     }
 }
 
 @media (max-width:424px){
     .card{
-        height: 20rem;
+        height: 20vh;
     }
-    .span{
-       width: 1rem;
-        height: 14rem;
+    .span-card{
+        width: 1vw;
+        height: 14vh;
     }
     .inf-card{
-        height: 20rem;
-        padding-top: 3rem;
+        height: 20vh;
+        padding-top: 4vh;
     }
     .img-card{
-        height: 20rem;
+        height: 20vh;
     }
 }

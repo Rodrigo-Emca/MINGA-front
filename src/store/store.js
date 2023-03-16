@@ -1,12 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import alertReducer from './Alert/reducer'
-import textReducer from './Text/reducer'
+import { configureStore } from "@reduxjs/toolkit";
+import textReducer from './search/reducer'
+import eventReducer from './Events/reducer'
 import checkReducer from './checks/reducer'
+import alertReducer from './Alert/reducer'
 
 export const store = configureStore({
-    reducer: {
-        alert: alertReducer,
+    reducer:{
         text: textReducer,
-        checks: checkReducer
+        events: eventReducer,
+        checks: checkReducer, 
+        alert: alertReducer
     }
 })

@@ -7,7 +7,7 @@ let captureChecks = createAction(
         return{
             payload:{checks: inputCheck}
         }
-
+        
     }
 )
 

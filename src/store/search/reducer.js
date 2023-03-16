@@ -1,20 +1,20 @@
 import { createReducer } from "@reduxjs/toolkit";
-import checkActions from './actions'
-const {captureChecks} = checkActions
+import textActions from './actions'
+const {captureText} = textActions
 
 const initiateState= {
-    checks: []
+    text: ''
 }
 
 const reducer = createReducer(
     initiateState,
     (builder) => builder
     .addCase(
-        captureChecks,
+        captureText,
         (state,action) => {
             let newState = {
                 ...state,
-                checks : action.payload.checks  
+                text : action.payload.text    
             }
             return newState
         }
