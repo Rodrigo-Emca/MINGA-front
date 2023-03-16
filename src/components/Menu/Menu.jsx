@@ -19,7 +19,6 @@ export default function Menu() {
     let name = user.name
     let email = user.email
     let photo = user.photo
-
     return (
         <div>
             {token ?

@@ -5,13 +5,6 @@ import Swal from 'sweetalert2'
 
 
 function LogoutAnchor() {
-    // const [isClicked, setIsClicked] = useState(false);
-
-    // const handleClick = () => {
-    //     setIsClicked(true);
-    //     localStorage.clear();
-    //     window.location.reload();
-    // };
 
     async function handleLogout(){
         let token = localStorage.getItem('token')

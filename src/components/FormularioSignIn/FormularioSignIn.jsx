@@ -50,7 +50,6 @@ export default function FormularioSignIn() {
             }
         }
 
-
     return (
     <form className='FormularioRegistro' onSubmit={handleSubmit}>
         <fieldset className='innerFormulario'>
