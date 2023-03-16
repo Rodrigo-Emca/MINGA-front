@@ -4,10 +4,10 @@ import './manga.css'
 import MangaCard from '../MangaCard/MangaCard'
 import MangaChecks from '../MangaChecks/MangaChecks'
 import { useSelector,useDispatch } from 'react-redux'
-import textActions from '../../store/search/actions'
-import eventActions from '../../store/Events/actions'
+import textActions from '../../store/Search/actions'
+import mangasActions from '../../store/Mangas/actions'
 const {captureText} = textActions
-const {read_events} = eventActions
+const {read_mangas} = mangasActions
 
 
 
@@ -18,20 +18,21 @@ export default function Manga() {
     const {page} = useParams()
     const pageNumber = Number(page)
     let navigate = useNavigate()
+    
     useEffect(() => {
         if (page === ':page') {
           navigate('/mangas/1')
         }
-      }, [page]);
+    }, [page]);
     
 
-    let mangas = useSelector(store => store.events.events)
+    let mangas = useSelector(store => store.mangas.mangas)
     let defaultText = useSelector(store => store.text.text)
     let defaultChecks = useSelector(store=>store.checks.checks)
 
     useEffect(
         () => {
-            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
+            dispatch(read_mangas({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
         },
         [page,defaultText,defaultChecks,reload]
     )
@@ -46,7 +47,7 @@ export default function Manga() {
   return (
     <div className='manga'>
         <div className='search-manga'>
-            <h2 className='name-page'>Manga</h2>
+            <h2 className='name-page'>Mangas</h2>
             <div className='cont-searh-manga'>
                 <form className='form-search' >
                     <input ref={title} defaultValue={defaultText} className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' onChange={handleChange}/>
