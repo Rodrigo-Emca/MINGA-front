@@ -1,7 +1,5 @@
 import React from 'react'
 import './menu.css'
-// import axios from 'axios'
-// import { useEffect } from 'react'
 import { Link as Anchor } from 'react-router-dom'
 import LogoutAnchor from '../LogoutAnchor/LogoutAnchor'
 import closeImage from '../../images/Close_btn.png'
@@ -17,7 +15,7 @@ export default function Menu() {
         }))
     }
     let user = JSON.parse(localStorage.getItem('user'))
-    console.log(user)
+    //console.log(user)
     let name = user.name
     let email = user.email
     let photo = user.photo

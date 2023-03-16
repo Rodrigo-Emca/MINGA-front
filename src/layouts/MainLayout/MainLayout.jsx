@@ -6,10 +6,10 @@ import Footer from '../../components/Footer/Footer'
 
 export default function MainLayout(props) {
   return (
-    <div>
-        <NavBar/>
-        <Outlet/>
-        <Footer/>
+    <div className='MainLayout'>
+        <NavBar className="navBar"/>
+        <Outlet className="main"/>
+        <Footer className="footer"/>
     </div>
   )
 }
