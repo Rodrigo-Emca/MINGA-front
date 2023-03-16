@@ -60,7 +60,7 @@
 .SignUpButton{
     background: #F97316;
     border-radius: 10px;
-    width: 100;
+    width: 100%;
     height: 40px;
 
     font-family: 'Poppins';
