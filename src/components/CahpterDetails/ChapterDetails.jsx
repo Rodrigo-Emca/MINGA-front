@@ -23,7 +23,7 @@ export default function ChapterDetails() {
             setNext(res.data.next)
             setPrev(res.data.prev);
         }).catch(error => console.log(error));
-    }, []);
+    }, [id, page]);
 
     
     function handlePrev(e) {
@@ -34,7 +34,6 @@ export default function ChapterDetails() {
             navigate('/mangas/:page');
         }else if (index <= 0){
             navigate(`/chapters/${prev}/0`)
-            window.location.reload(true)
         }
     }
 
@@ -44,7 +43,6 @@ export default function ChapterDetails() {
         navigate(`/chapters/${id}/${index + 1}`)
         if (index >= Chapter.pages.length - 1) {
             navigate(`/chapters/${next}/0`)
-            window.location.reload(true)
         }
     }
 
@@ -68,4 +66,3 @@ export default function ChapterDetails() {
         </div>
     )
 }
-
