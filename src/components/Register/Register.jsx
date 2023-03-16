@@ -16,6 +16,8 @@ export default function Register() {
                 <FormularioEncabezado/>
                 <FormularioRegistro/>
                 <FormularioBase/>
+        
+                
             </div>
         </div>
         <div className='ImagenRegister'>

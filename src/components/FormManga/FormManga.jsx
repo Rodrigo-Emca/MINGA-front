@@ -20,7 +20,7 @@ export default function FormManga() {
             [category.current.name]: category.current.value
         }
         console.log(data)
-        let url = 'http://localhost:8080/mangas/'
+        let url = 'http://localhost:8000/mangas/'
         try {
             await axios.post(url, data)
 

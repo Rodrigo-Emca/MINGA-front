@@ -7,6 +7,7 @@ import NotFound from "./NotFound/NotFound";
 import FormMangaPage from "./FormMangaPage/FormMangaPage"
 import ChapterForm from "./FormChapter/FormChapter";
 import Manga from "./Manga/Manga";
+import MangaSearch from "./MangaSearch/MangaSearch"
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -22,9 +23,11 @@ export const router = createBrowserRouter([
     children: [
         {path: "/signup", element: <Register/>},
         {path: "/signin", element: <SignIn/>},
+        {path: "/mangas-form", element: <FormMangaPage/>},
         {path: "/mangas", element: <FormMangaPage/>},
         {path: "/manga/:id/:page", element: <Manga/>},
         {path: "/chapter-form/:manga_id", element: <ChapterForm />},
+        {path: "/mangas/:page", element: <MangaSearch/>},
         {path: "/*", element: <NotFound/>}
     ]
 },
