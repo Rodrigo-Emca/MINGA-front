@@ -15,7 +15,7 @@ const reducer = createReducer(
         (state,actions)=>{
             let newState = {
                 ...state,
-                mangas: actions.payload.events
+                mangas: actions.payload.mangas
             }
             return newState
         }
