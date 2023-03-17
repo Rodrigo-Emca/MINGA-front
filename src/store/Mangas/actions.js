@@ -12,6 +12,9 @@ const read_mangas = createAsyncThunk(
                 mangas: response.data.mangas
             }
         }catch(error){
+
+            console.log('No se ha podido traer el pedido')
+
             return{
                 mangas: []
             }
@@ -22,3 +25,4 @@ const read_mangas = createAsyncThunk(
 const actions = {read_mangas}
 
 export default actions
+

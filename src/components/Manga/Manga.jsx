@@ -10,7 +10,6 @@ const {captureText} = textActions
 const {read_mangas} = mangasActions
 
 
-
 export default function Manga() {
     const title = useRef("")
     const dispatch = useDispatch()

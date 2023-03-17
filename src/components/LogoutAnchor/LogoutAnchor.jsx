@@ -1,63 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Link as Anchor} from 'react-router-dom'
-// import axios from 'axios'
-//import Swal from 'sweetalert2'
+import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 function LogoutAnchor() {
-    const [isClicked, setIsClicked] = useState(false);
 
-    const handleClick = () => {
-        setIsClicked(true);
-        localStorage.clear();
-        window.location.reload();
-        // Swal.fire({
-        //     title: 'Logout Succefull',
-        //     showClass: {
-        //         popup: 'animateanimated animatefadeInDown'
-        //     },
-        //     hideClass: {
-        //         popup: 'animateanimated animatefadeOutUp'
-        //     }
-        // })
-    };
+    async function handleLogout(){
+        let token = localStorage.getItem('token')
+        let headers = {headers:{'Authorization':`Bearer ${token}`}}
+        let url = 'http://localhost:8000/auth/signout'
+        let urlToken = 'http://localhost:8000/auth/token'
+        
+        try {
+            await axios.post(urlToken,"",headers)
+            //console.log('header enviado con exito')
+            } catch (error) {
+            console.log(error)
+            }
+        
+        try{
+            await axios.post(url,"",headers)
+            Swal.fire({
+                    icon: 'success',
+                    // title: '¡Hasta pronto!',
+                    text: '¡Usuario offline!'
+                })
+            localStorage.setItem('token', "")
+            localStorage.setItem('user', "")
+        }catch(error){
+            let err = error.response.data.message
+                console.log('Ocurrió un error')
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Lo sentimos!',
+                    text: err
+                })
+        }
+
+
+    }
 
     return (
-        <Anchor onClick={handleClick}>Logout</Anchor>
+        <Anchor onClick={handleLogout}>Logout</Anchor>
     );
 }
 
 export default LogoutAnchor;
-
-
-// export default function LogoutAnchor() {
-
-//     let token = localStorage.getItem('token')
-//     let headers = {headers:{'Authorization':'Bearer ${token}'}}
-//     let url = 'http://localhost:8000/auth/signout'
-
-//     async function handleLogout(){
-//         try{
-//             await axios.post(url,"",headers)
-//             Swal.fire({
-//                 title: 'Logout Succefull',
-//                 showClass: {
-//                     popup: 'animateanimated animatefadeInDown'
-//                 },
-//                 hideClass: {
-//                     popup: 'animateanimated animatefadeOutUp'
-//                 }
-//             })
-//             localStorage.clear()
-//             location.reload()
-//         }catch(error){
-//             console.log(error)
-//         }
-//         }
-
-//     return (
-//         <div>
-//             <Anchor onSubmit={handleLogout}>Logout</Anchor>
-//         </div>
-//     )
-// }

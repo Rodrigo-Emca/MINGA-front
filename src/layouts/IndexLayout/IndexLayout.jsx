@@ -8,7 +8,6 @@ export default function IndexLayout(props) {
         <div>
             <NavBar/>
             <Outlet/>
-            {/* {props.children} */}
         </div>
     )
 }

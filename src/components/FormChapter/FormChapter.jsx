@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRef } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import './FormChapter.css'
 import Swal from 'sweetalert2'
@@ -8,12 +9,14 @@ export default function FormChapter() {
     let title = useRef()
     let order = useRef()
     let pages = useRef()
+    let {manga_id} = useParams()
 
 
     async function haddleSubmit(e){
         e.preventDefault()
         
         let chapter = {
+            manga_id ,
             [title.current.name]: title.current.value,
             [pages.current.name]: pages.current.value,
         };
@@ -26,7 +29,7 @@ export default function FormChapter() {
         let token = localStorage.getItem('token')
         let headers = {headers: {'Authorization': `Bearer ${token}`}}
         try{
-            await axios.post(url, chapter)
+            await axios.post(url, chapter, headers)
             Swal.fire({
                 icon: 'success',
                 title: 'EXITO',
