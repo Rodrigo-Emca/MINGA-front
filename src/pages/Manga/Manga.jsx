@@ -122,7 +122,7 @@ export default function Manga() {
                         {CHAPTERS && CHAPTERS.map((chapter, index) => (
                             <div>
                                 <div key={index} className="innerContenedorChapter">
-                                    <img src={imageManga} alt={chapter.title}  className="chapterImage"/>
+                                    <img src={chapter.pages[0]} alt={chapter.title}  className="chapterImage"/>
                                     <div className="ChapterInfo">
                                         <p>Chapter #{chapter.order}:</p>
                                         <p>{chapter.title}</p>
