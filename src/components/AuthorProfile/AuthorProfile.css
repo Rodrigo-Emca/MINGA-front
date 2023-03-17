@@ -1,0 +1,84 @@
+.author{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author-image{
+    width: 100vw;
+    max-width: 100%;
+    height: 91.7vh;
+    background-image: url(../../images/background-author.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-page{
+    width: auto;
+    height: 10vh;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8vh;
+    line-height: 95.19%;
+    color: #FFFFFF;
+    margin-top: 38vh;
+}
+
+.card-manga{
+
+    border: 1px solid red;
+}
+
+
+/* form */
+.title-manga{
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.FormularioRegistro-m{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 10px;
+    width: 50%;
+    padding-top: 10rem;
+    margin: auto;
+    border: 1px solid red;
+}
+
+.inputs-m{
+    width: 90%;
+    height: 20px;
+    padding-left: 0.5rem;
+    margin-bottom: 0.1rem;
+    border: transparent;
+    border-bottom: 1px  solid black;
+}
+
+
+.SignUpButton-m{
+    background: #F97316;
+    border: none;
+    border-radius: 20px;
+    width: 30%;
+    height: 40px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    margin: auto;
+  
+}
+
+.inputs-m2{
+    display: none;
+}
