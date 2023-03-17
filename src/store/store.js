@@ -9,7 +9,7 @@ import chapterReducer from './Chapters/reducers'
 export const store = configureStore({
     reducer:{
         text: textReducer,
-        mangas: mangaReducer,
+        mangas: mangasReducer,//G
         checks: checkReducer, 
         alert: alertReducer,
         manga: mangaReducer,
