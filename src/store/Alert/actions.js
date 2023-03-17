@@ -1,11 +1,11 @@
 import { createAction } from "@reduxjs/toolkit"
 
-let open = createAction( /* defino una accion para controlar que la alerta se abra */
+let open = createAction( 
     'open',
     ({ icon,text })=> { return { payload: { icon, text, visible: true } }}
 )
 
-let close = createAction( /* defino una accion para controlar que la alerta se cierre */
+let close = createAction( 
     'close',
     ({ icon,text })=> { return { payload: { icon, text, visible: false} }}
 )
