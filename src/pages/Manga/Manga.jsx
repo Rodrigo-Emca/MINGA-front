@@ -133,12 +133,11 @@ export default function Manga() {
                         ))}
                     </div>
                     <div className="conenedorDeBotones">
-                        <button onClick={handlePrevPage} className={`botones ${currentPage === '1' ? 'ocultar' : ''}`}>
-                        Prev
-                        </button>
-                        <button onClick={handleNextPage} className={`botones ${CHAPTERS.length < '4' ? 'ocultar' : ''}`}>
-                        Next
-                        </button>
+
+                        {currentPage === 1 ? "" :<Anchor onClick={handlePrevPage} className='botones' to={'/manga/'+ id + "/" + (currentPage - 1)}>Prev</Anchor>}
+
+                        {CHAPTERS.length >= 4 ? <Anchor onClick={handleNextPage} className='botones' to={'/manga/'+ id + "/" + (currentPage + 1)}>Next</Anchor>: ""}
+
                     </div>
                 </div>
             )}
