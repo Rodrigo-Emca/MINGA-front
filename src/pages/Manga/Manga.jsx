@@ -127,7 +127,7 @@ export default function Manga() {
                                         <p>Chapter #{chapter.order}:</p>
                                         <p>{chapter.title}</p>
                                     </div>
-                                    <Anchor to={"/chapter/"+chapter._id} className='btn-read'>Read</Anchor>
+                                    <Anchor to={"/chapters/"+chapter._id+"/0"} className='btn-read'>Read</Anchor>
                                 </div>
                             </div>
                         ))}
