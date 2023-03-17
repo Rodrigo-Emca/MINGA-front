@@ -35,7 +35,7 @@ export default function Menu() {
                     </div>
                     <div className='contenedorAnchors'>
                         <Anchor to='/'>Home</Anchor>
-                        <Anchor to='/'>Comics</Anchor>
+                        <Anchor to='/mangas/0'>Mangas</Anchor>
                         <Anchor to='/'>My Comics</Anchor>
                         <Anchor to='/'>Favourires</Anchor>
                         <Anchor to='/chapter-form/:manga_id'>Chapter</Anchor>
