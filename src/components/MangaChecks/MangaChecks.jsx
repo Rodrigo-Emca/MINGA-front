@@ -3,7 +3,7 @@ import './MangaChecks.css'
 import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import checkActions from '../../store/xxChecks/actions'
+import checkActions from '../../store/Checks/actions'
 const {captureChecks} = checkActions
 
 export default function MangaChecks(props) {
