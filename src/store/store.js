@@ -5,14 +5,16 @@ import checkReducer from './Checks/reducer'
 import alertReducer from './Alert/reducer'
 import mangaReducer from './Manga/reducers'
 import chapterReducer from './Chapters/reducers'
+import editReducer from "./Edit/reducer";
 
 export const store = configureStore({
     reducer:{
         text: textReducer,
-        mangas: mangaReducer,
+        mangas: mangasReducer,
         checks: checkReducer, 
         alert: alertReducer,
         manga: mangaReducer,
-        chapters: chapterReducer
+        chapters: chapterReducer,
+        edit: editReducer    
     }
 })

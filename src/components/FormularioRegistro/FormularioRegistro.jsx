@@ -12,7 +12,7 @@ import passwordIcon from '../../images/lock1.png'
 export default function FormularioRegistro() {
 
     let name = useRef()
-    let email = useRef()
+    let mail = useRef()
     let photo = useRef()
     let password = useRef()
 
@@ -21,7 +21,7 @@ async function handleSubmit(event) {
 
         let data = {
             [name.current.name]: name.current.value,
-            [email.current.name]: email.current.value,
+            [mail.current.name]: mail.current.value,
             [photo.current.name]: photo.current.value,
             [password.current.name]: password.current.value
         }
@@ -55,7 +55,7 @@ async function handleSubmit(event) {
 
         <fieldset className='innerFormulario'>
             <legend>Email</legend>
-                <input ref={email} type="email" className='inputs' name='email' required/>
+                <input ref={mail} type="email" className='inputs' name='mail' required/>
                 <img src={emailIcon} alt="emailIcon" className='icon'/>
         </fieldset>
 
