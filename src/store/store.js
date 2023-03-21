@@ -5,6 +5,8 @@ import checkReducer from './Checks/reducer'
 import alertReducer from './Alert/reducer'
 import mangaReducer from './Manga/reducers'
 import chapterReducer from './Chapters/reducers'
+import getMyMangas from './MyMangas/reducer'
+import modalDeleteReducer from './DeleteManga/reducer'
 
 export const store = configureStore({
     reducer:{
@@ -13,6 +15,8 @@ export const store = configureStore({
         checks: checkReducer, 
         alert: alertReducer,
         manga: mangaReducer,
-        chapters: chapterReducer
+        chapters: chapterReducer,
+        myMangas: getMyMangas,
+        modalDeleteState: modalDeleteReducer
     }
 })

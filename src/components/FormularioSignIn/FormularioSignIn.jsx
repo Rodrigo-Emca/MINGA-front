@@ -9,14 +9,14 @@ import passwordIcon from '../../images/lock1.png'
 
 export default function FormularioSignIn() {
 
-    let email = useRef()
+    let mail = useRef()
     let password = useRef()
 
     async function handleSubmit(event) {
             event.preventDefault()
 
             let data = {
-                [email.current.name]: email.current.value,
+                [mail.current.name]: mail.current.value,
                 [password.current.name]: password.current.value
             }
             //console.log(data)
@@ -24,11 +24,11 @@ export default function FormularioSignIn() {
             try {
                 await axios.post(url_signIn, data)
                 .then(res => {
-                    //console.log(res)
+                    console.log(res)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('user', JSON.stringify({
                         name: res.data.name,
-                        email: res.data.email,
+                        mail: res.data.mail,
                         photo: res.data.photo
                     }))
                     })
@@ -54,7 +54,7 @@ export default function FormularioSignIn() {
     <form className='FormularioRegistro' onSubmit={handleSubmit}>
         <fieldset className='innerFormulario'>
             <legend>Email</legend>
-                <input ref={email} type="email" className='inputs' name='email' required/>
+                <input ref={mail} type="email" className='inputs' name='mail' required/>
                 <img src={emailIcon} alt="emailIcon" className='icon'/>
         </fieldset>
             
