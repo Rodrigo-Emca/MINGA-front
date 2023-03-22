@@ -6,6 +6,7 @@ import axios from 'axios'
 import edit from '../../store/Edit/actions'
 import actions from '../../store/Chapters/actions'
 import { useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const { get_chapters } = actions
 const { editChapter, deleteChapter } = edit
@@ -16,7 +17,6 @@ export default function FormEdit() {
     let dispatch = useDispatch()
     let { manga_id } = useParams()
     let { _id } = useParams()
-    let name = useRef()
     let select = useRef()
     let chapter = useRef()
     let modif = useRef()
@@ -60,11 +60,11 @@ export default function FormEdit() {
     )
     let userse = useSelector(store => store)
     console.log(userse)
+
     function handleEdit(e) {
         e.preventDefault()
 
         let data = {
-            nameManga: name.current.value,
             chapter: select.current.value,
             mod: modif.current.value,
             editDate: editDate.current.value
@@ -74,6 +74,10 @@ export default function FormEdit() {
             chapter_id: data.chapter
         }))
         e.target.reset()
+        Swal.fire({
+            icon: 'success',
+            title: 'success',
+            text: 'It\'s chapter has been successfully modified',})
         setReload(!reload)
     }
 
@@ -89,6 +93,10 @@ export default function FormEdit() {
                 inputId: manga_id,
                 quantity: 0
             }))
+            Swal.fire({
+                icon: 'success',
+                title: 'success',
+                text: 'Your chapter has been successfully removed',})
             setReload(!reload)
         } catch (error) {
             console.log(error)
@@ -102,7 +110,6 @@ export default function FormEdit() {
                 <h2 className='title-ed'>Edit Chapter</h2>
                 <form onSubmit={handleEdit}>
                     <fieldset className='form-ed'>
-                        <input type="text" placeholder='name of the manga' ref={name} />
                         <select name='selectchapter' id='selectchapter' ref={select} onChange={handleChange}>
                             <option value="#">Select</option>
                             {chapter?.map(chapter => (
