@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import './myMangaCards.css';
 import { useNavigate } from 'react-router';
 import { useSelector,useDispatch } from 'react-redux'
-import DeleteModal from '../DeleteModal/DeleteModal';
+import deleteManga from '../DeleteModal/DeleteModal';
 import EditModal from '../EditModal/EditModal';
 import imagenMas from '../../images/suma.png';
 import imagenLapiz from '../../images/lapiz.png';
@@ -15,6 +15,7 @@ export default function MangaCard(props) {
     const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
     let navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function handleNavegate() {
         navigate(`/manga/${props._id}/1`);
@@ -26,41 +27,54 @@ export default function MangaCard(props) {
 
     let title = useRef()
     let description = useRef()
-    let category = useRef()
+    let category_id = useRef()
     let cover_photo = useRef()
 
     async function handleSubmit(event) {
-            event.preventDefault()
-
-            let data = {
-                [title.current.name]: title.current.value,
-                [description.current.name]: description.current.value,
-                [category.current.name]: category.current.value,
-                [cover_photo.current.name]: cover_photo.current.value
-            }
-            console.log(data)
-            let token = localStorage.getItem('token');
-            let urlEdit = 'http://localhost:8000/mangas/'+`${props._id}`;
-            let headers = { headers: { 'Authorization': `Bearer ${token}` } };
-            try {
-                await axios.put(urlEdit, data, headers)
-                Swal.fire({
-                    icon: 'success',
-                    title: 'ÉXITO',
-                    text: 'Usuario creado correctamente'
-                })
-            } catch(error) {
-                let err = error.response.data.message
-                console.log('Ocurrió un error')
-                Swal.fire({
-                    icon: 'error',
-                    title: '¡Lo sentimos!',
-                    text: err
-                })
-            }
+        event.preventDefault()
+    
+        let data = {}
+        if (title.current.value) {
+            data[title.current.name] = title.current.value
         }
-
-
+        if (description.current.value) {
+            data[description.current.name] = description.current.value
+        }
+        if (cover_photo.current.value) {
+            data[cover_photo.current.name] = cover_photo.current.value
+        }
+        
+        if (Object.keys(data).length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: '¡Lo sentimos!',
+                text: 'Debes proporcionar al menos una propiedad con contenido'
+            })
+            return
+        }
+    
+        let token = localStorage.getItem('token');
+        let urlEdit = 'http://localhost:8000/mangas/'+`${props._id}`;
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } };
+        try {
+            await axios.put(urlEdit, data, headers)
+            await Swal.fire({
+                icon: 'success',
+                title: 'ÉXITO',
+                text: 'Manga editado correctamente'
+            })
+            window.location.reload()
+        } catch(error) {
+            let err = error.response.data.message
+            console.log('Ocurrió un error')
+            Swal.fire({
+                icon: 'error',
+                title: '¡Lo sentimos!',
+                text: err
+            })
+        }
+    }
+    
 
     async function handleDelete() {
         let token = localStorage.getItem('token');
@@ -147,10 +161,10 @@ export default function MangaCard(props) {
                             <input ref={description} type="text" className='inputs' name='description' placeholder='Write here the new description'/>
                     </fieldset>
 
-                    <fieldset className='innerFormulario'>
+                    {/* <fieldset className='innerFormulario'>
                         <legend>Category</legend>
-                            <input ref={category} type="text" className='inputs' name='category' placeholder={props.category_.name}/>
-                    </fieldset>
+                            <input ref={category_id} type="text" className='inputs' name='category_id' placeholder={props.category_.name}/>
+                    </fieldset> */}
 
                     <fieldset className='innerFormulario'>
                         <legend>Cover_photo</legend>
@@ -163,7 +177,6 @@ export default function MangaCard(props) {
                     <button className='botonModalCANCEL' onClick={() => setEditModalIsOpen(false)}>Cancel</button>
                 </form>
             </Modal>
-
         </div>
     );
 }
