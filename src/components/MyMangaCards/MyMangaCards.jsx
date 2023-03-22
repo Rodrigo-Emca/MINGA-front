@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import './myMangaCards.css';
-import { useNavigate } from 'react-router';
+import { useParams,Link as Anchor,useNavigate } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import deleteManga from '../DeleteModal/DeleteModal';
 import EditModal from '../EditModal/EditModal';
@@ -116,12 +116,8 @@ export default function MangaCard(props) {
         ></span>
         <div className='inf-card'>
             <div className='contenedorMiniBottons'>
-            <button onClick={handleNavegate} className='btn-card-mini'>
-                <img src={imagenMas} alt='' />
-            </button>
-            <button onClick={handleNavegate} className='btn-card-mini'>
-                <img src={imagenLapiz} alt='' />
-            </button>
+                <Anchor to={'/chapter-form/'+`${props._id}`}  onClick={handleNavegate} className='btn-card-mini'><img src={imagenMas} alt='' /></Anchor>
+                <Anchor to={'/edit/'+`${props._id}`}  onClick={handleNavegate} className='btn-card-mini'><img src={imagenLapiz} alt='' /></Anchor>
             </div>
             <h2 className='title-card'>{props.title_}</h2>
             <h3 className='category-card'>{props.category_.name}</h3>
@@ -153,22 +149,22 @@ export default function MangaCard(props) {
                 <form className='FormularioRegistro' onSubmit={handleSubmit} >
                     <fieldset className='innerFormulario'>
                         <legend>Title</legend>
-                            <input ref={title} type="text" className='inputs' name='title' placeholder={props.title_}/>
+                            <input ref={title} type="text" className='inputsEdit' name='title' placeholder={props.title_}/>
                     </fieldset>
 
                     <fieldset className='innerFormulario'>
                         <legend>Description</legend>
-                            <input ref={description} type="text" className='inputs' name='description' placeholder='Write here the new description'/>
+                            <input ref={description} type="text" className='inputsEdit' name='description' placeholder='Write here the new description'/>
                     </fieldset>
 
                     {/* <fieldset className='innerFormulario'>
                         <legend>Category</legend>
-                            <input ref={category_id} type="text" className='inputs' name='category_id' placeholder={props.category_.name}/>
+                            <input ref={category_id} type="text" className='inputsEdit' name='category_id' placeholder={props.category_.name}/>
                     </fieldset> */}
 
                     <fieldset className='innerFormulario'>
                         <legend>Cover_photo</legend>
-                            <input ref={cover_photo} type="url" className='inputs' name='cover_photo' placeholder='URL'/>
+                            <input ref={cover_photo} type="url" className='inputsEdit' name='cover_photo' placeholder='URL'/>
                     </fieldset>
                         
 

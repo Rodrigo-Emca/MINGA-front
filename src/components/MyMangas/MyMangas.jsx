@@ -33,7 +33,6 @@ export default function MyMangas() {
                 <h2 className='name-page'>My Mangas</h2>
             </div>
             <div className='card-manga'>
-
                 <div className='cont-cards'>
                     {myMangas.length?(myMangas.map((manga) => (
                             <MangaCard key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>

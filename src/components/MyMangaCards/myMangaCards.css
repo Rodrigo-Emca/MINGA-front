@@ -74,6 +74,7 @@
 }
 .btn-card-mini{
     width: 1.5rem;
+    height: 1.5rem;
     border: 2px solid #222222;
     background-color: transparent;
     border-radius: 50%;
@@ -244,14 +245,61 @@
     
     position: absolute;
     width: 400px;
-    height: 550px;
+    height: 500px;
     left: calc(50% - 371px/2 + 0.5px);
-    top: calc(50% - 600px/2);
+    top: calc(50% - 500px/2);
     
     background: #F2F2F7;
     backdrop-filter: blur(27.1828px);
 
     border-radius: 14px;
+}
+
+.innerFormulario>legend{
+    font-size: large;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inputsEdit{
+    outline: #222222;
+    border: red !important;
+    width: 90%;
+    height: 25px;
+    border-radius: 15px;
+    padding-left: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+
+.SignUpButton{
+    background-color: transparent;
+    border: none;
+    color: #EE8380;
+
+    width: 169.25px;
+    height: 22px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+}
+
+.botonModalCANCEL{
+    background-color: transparent;
+    border: none;
+    color: #0A7AFF;
+
+    width: 169.25px;
+    height: 22px;
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
 }
 
 .FormularioRegistro{
@@ -272,6 +320,12 @@
     .img-card{
         width: 25vw;
     }
+    .card-container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (max-width:767px){
@@ -286,6 +340,15 @@
     }
     .img-card{
         width: 32vw;
+    }
+    .card-container{
+        width: 100vw;
+    }
+    .modalEDITE{
+        width: 90vw;
+        height: 550px;
+        top: calc(50% - 600px/2);
+        left: calc(50% - 90vw/2);
     }
 }
 

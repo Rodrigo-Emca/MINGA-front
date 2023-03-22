@@ -12,7 +12,7 @@ export default function MyMangasPrevNextBtns() {
     return (
         <div className='page-manga'>
             {page === 1 ? "" : <Anchor className='btn-prev' to={'/mymangas/' + (page - 1)} >Prev</Anchor>}
-            { myMangas.length === 6 || myMangas.length === 10 ? <Anchor className='btn-next' to={'/mymangas/' + (page + 1)} >Next</Anchor> : "" }
+            { myMangas.length > 6 || myMangas.length === 10 ? <Anchor className='btn-next' to={'/mymangas/' + (page + 1)} >Next</Anchor> : "" }
         </div>
     )
 }
