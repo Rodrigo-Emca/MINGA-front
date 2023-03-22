@@ -5,6 +5,7 @@ import checkReducer from './Checks/reducer'
 import alertReducer from './Alert/reducer'
 import mangaReducer from './Manga/reducers'
 import chapterReducer from './Chapters/reducers'
+import authorReducer from './authors/reducer'//G
 
 export const store = configureStore({
     reducer:{
@@ -13,6 +14,7 @@ export const store = configureStore({
         checks: checkReducer, 
         alert: alertReducer,
         manga: mangaReducer,
-        chapters: chapterReducer
+        chapters: chapterReducer,
+        author: authorReducer//G
     }
 })
