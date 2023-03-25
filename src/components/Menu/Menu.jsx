@@ -10,14 +10,14 @@ export default function Menu() {
     if (!token) {
         localStorage.setItem('user', JSON.stringify({
             name: "",
-            email: "",
+            mail: "",
             photo: "",
         }))
     }
     let user = JSON.parse(localStorage.getItem('user'))
     //console.log(user)
     let name = user.name
-    let email = user.email
+    let mail = user.mail
     let photo = user.photo
     return (
         <div>
@@ -28,15 +28,15 @@ export default function Menu() {
                             <img src={photo} alt="profile_pic" className='profile_pic' />
                             <div className='nameAndMail'>
                                 <p>{name}</p>
-                                <p>{email}</p>
+                                <p>{mail}</p>
                             </div>
                         </div>
                         <img src={closeImage} alt="" />
                     </div>
                     <div className='contenedorAnchors'>
                         <Anchor to='/'>Home</Anchor>
-                        <Anchor to='/'>Comics</Anchor>
-                        <Anchor to='/'>My Comics</Anchor>
+                        <Anchor to='/mangas/0'>Mangas</Anchor>
+                        <Anchor to='/myMangas/1'>My Mangas</Anchor>
                         <Anchor to='/'>Favourires</Anchor>
                         <Anchor to='/chapter-form/:manga_id'>Chapter</Anchor>
                         <LogoutAnchor />
