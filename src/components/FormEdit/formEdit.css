@@ -66,7 +66,9 @@ select{
 }
 
 .img-naruto {
-    width: 100%;
+    width: 60%;
+    height: 70vh;
+    object-fit: cover;
 }
 
 @media (min-width: 425px) and (max-width: 1024px){

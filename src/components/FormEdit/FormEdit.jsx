@@ -22,6 +22,7 @@ export default function FormEdit() {
     let modif = useRef()
     let editDate = useRef()
     chapter = useSelector(store => store.chapters.chapter)
+    console.log(chapter)
     // let url = `http://localhost:8000/chapters?manga_id=${manga_id}&quantity=${0}`
     let url2 = `http://localhost:8000/mangas/${manga_id}`
     let [chapters, setChapter] = useState({})
@@ -56,7 +57,7 @@ export default function FormEdit() {
             axios.get('http://localhost:8000/chapters/' + order)
                 .then(res => setNewOrder(res.data.chapter))
                 .catch(error => console.log(error))
-        }, [order]
+        }, [reload]
     )
     let userse = useSelector(store => store)
     console.log(userse)
@@ -83,6 +84,7 @@ export default function FormEdit() {
 
     function handleChange(e) {
         setOrder(e.target.value)
+        setReload(!reload)
     }
 
     async function handleDelete(e) {
