@@ -13,6 +13,8 @@ import imagenLapiz from '../../images/lapiz.png';
 export default function MangaCard(props) {
     const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
     const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+    const {reload, setReload} = props
+    // const [reload, setReload] = useState(false);
 
     let navigate = useNavigate();
     const dispatch = useDispatch();
@@ -63,7 +65,7 @@ export default function MangaCard(props) {
                 title: 'ÉXITO',
                 text: 'Manga editado correctamente'
             })
-            window.location.reload()
+            setReload(!reload)
         } catch(error) {
             let err = error.response.data.message
             console.log('Ocurrió un error')
@@ -87,7 +89,7 @@ export default function MangaCard(props) {
                 title: 'ÉXITO',
                 text: 'Manga deleted correctly'
             });
-            window.location.reload()
+            setReload(!reload)
             } catch(error) {
             let err = error.response.data.message;
             console.log('Ocurrió un error');

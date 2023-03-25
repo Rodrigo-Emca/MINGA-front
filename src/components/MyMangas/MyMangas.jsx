@@ -12,6 +12,7 @@ export default function MyMangas() {
     const {page} = useParams()
     const pageNumber = Number(page)
     let navigate = useNavigate()
+    const [reload, setReload] = useState(false);
     
     useEffect(() => {
         if (page === ':page') {
@@ -25,7 +26,7 @@ export default function MyMangas() {
 
     useEffect(() => {
         dispatch(my_mangas({token }))
-    }, [])
+    }, [reload])
 
     return (
         <div className='manga'>
@@ -35,7 +36,7 @@ export default function MyMangas() {
             <div className='card-manga'>
                 <div className='cont-cards'>
                     {myMangas.length?(myMangas.map((manga) => (
-                            <MangaCard key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
+                            <MangaCard reload={reload} setReload={setReload} key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
                         ))):<p>not found</p>} 
                 </div>
                 <MyMangasPrevNextBtns/>
