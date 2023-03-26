@@ -10,6 +10,7 @@ import AuthorForm from "./AuthorForm/AuthorForm";
 import Pagina from "./Pagina/Pagina";
 import Manga from "./Manga/Manga";
 import MangaSearch from "./MangaSearch/MangaSearch"
+import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangasPage from './MyMangasPage/MyMangasPage'
 import { createBrowserRouter } from "react-router-dom";
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
         {path: "/manga/:id/:page", element: <Manga/>},
         {path: "/chapter-form/:manga_id", element: <ChapterForm />},
         {path: "/mangas/:page", element: <MangaSearch/>},
+        {path: "/profile", element: <AuthorProfile />},
         {path: "/edit/:manga_id", element: <EditChapter/>},
         {path: "/myMangas/:page", element: <MyMangasPage/>},
         {path: "/*", element: <NotFound/>}

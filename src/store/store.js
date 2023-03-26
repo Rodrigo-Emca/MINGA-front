@@ -8,6 +8,7 @@ import chapterReducer from './Chapters/reducers'
 import editReducer from "./Edit/reducer";
 import getMyMangas from './MyMangas/reducer'
 import modalDeleteReducer from './DeleteManga/reducer'
+import authorReducer from './authors/reducer'//G
 
 export const store = configureStore({
     reducer:{
@@ -17,8 +18,9 @@ export const store = configureStore({
         alert: alertReducer,
         manga: mangaReducer,
         chapters: chapterReducer,
-        edit: editReducer    
+        edit: editReducer,    
         myMangas: getMyMangas,
-        modalDeleteState: modalDeleteReducer
+        modalDeleteState: modalDeleteReducer,
+        author: authorReducer//G
     }
 })
