@@ -31,7 +31,7 @@ export default function ChapterDetails() {
         navigate(`/chapters/${id}/${index - 1}`);
 
         if ((index <= 0) && (Chapter.order === 1)) {
-            navigate('/mangas/:page');
+            navigate('/mangas/1');
         }else if (index <= 0){
             navigate(`/chapters/${prev}/0`)
         }
