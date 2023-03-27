@@ -24,11 +24,11 @@ export default function FormularioSignIn() {
             try {
                 await axios.post(url_signIn, data)
                 .then(res => {
-                    //console.log(res)
+                    console.log(res)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('user', JSON.stringify({
                         name: res.data.name,
-                        email: res.data.email,
+                        mail: res.data.mail,
                         photo: res.data.photo
                     }))
                     })

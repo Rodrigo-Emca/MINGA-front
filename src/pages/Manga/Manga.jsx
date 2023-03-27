@@ -122,7 +122,7 @@ export default function Manga() {
                         {CHAPTERS && CHAPTERS.map((chapter, index) => (
                             <div>
                                 <div key={index} className="innerContenedorChapter">
-                                    <img src={imageManga} alt={chapter.title}  className="chapterImage"/>
+                                    <img src={chapter.pages[0]} alt={chapter.title}  className="chapterImage"/>
                                     <div className="ChapterInfo">
                                         <p>Chapter #{chapter.order}:</p>
                                         <p>{chapter.title}</p>
@@ -133,12 +133,11 @@ export default function Manga() {
                         ))}
                     </div>
                     <div className="conenedorDeBotones">
-                        <button onClick={handlePrevPage} className={`botones ${currentPage === '1' ? 'ocultar' : ''}`}>
-                        Prev
-                        </button>
-                        <button onClick={handleNextPage} className={`botones ${CHAPTERS.length < '4' ? 'ocultar' : ''}`}>
-                        Next
-                        </button>
+
+                        {currentPage === 1 ? "" :<Anchor onClick={handlePrevPage} className='botones' to={'/manga/'+ id + "/" + (currentPage - 1)}>Prev</Anchor>}
+
+                        {CHAPTERS.length >= 4 ? <Anchor onClick={handleNextPage} className='botones' to={'/manga/'+ id + "/" + (currentPage + 1)}>Next</Anchor>: ""}
+
                     </div>
                 </div>
             )}

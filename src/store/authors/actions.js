@@ -22,10 +22,12 @@ const read_author = createAsyncThunk(
 
 const update_author = createAsyncThunk(
     'update_author',
-    async ({data}) => {
-        let token = localStorage.getItem('token')
-        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    async ({data}) => { 
+        let token = localStorage.getItem('token') 
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } } 
+        console.log(headers)
         let url = 'http://localhost:8000/api/authors/me'
+       
         try{
             let response = await axios.put(url,data,headers)
             console.log(response.data);

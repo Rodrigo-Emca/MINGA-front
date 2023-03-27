@@ -5,19 +5,18 @@ import { useRef, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import authorAction from '../../store/authors/actions'
 import { useNavigate } from 'react-router-dom'
-
 const { read_author, update_author } = authorAction
 
- export default function EditProfile() {
+export default function EditProfile() {
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const editForm = useRef();
-  const [reload, setReload] = useState(false);
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch(); 
+  const editForm = useRef(); 
+  const [reload, setReload] = useState(false); 
   const [showAlert, setShowAlert] = useState(false);
 
 
-  const handleAccept = async (event) => {
+  const handleAccept = async (event) => { 
         event.preventDefault();
         const cityCountry = editForm.current[2].value;
         const array = cityCountry.split(",");
@@ -45,16 +44,16 @@ const { read_author, update_author } = authorAction
           });
           console.log(result);
           if (result.isConfirmed) {
-            dispatch(update_author({ data: data }));
+            dispatch(update_author({ data: data })); 
             setReload(!reload);
             setShowAlert(true);
           }
-        }
+        } 
   };
 
-  async function handleDelete (event) {
+  async function handleDelete (event) { 
       event.preventDefault();
-      const data = {
+      const data = { 
         active: false,
       };
       const result = await Swal.fire({
@@ -68,7 +67,6 @@ const { read_author, update_author } = authorAction
       });
  
       if (result.isConfirmed) {
-         
           dispatch(update_author({ data: data }));
           setReload(!reload);
   
@@ -76,22 +74,23 @@ const { read_author, update_author } = authorAction
               navigate('/');
           }, 500);
         }
+        
     
   };
 
 
-  let authores = useSelector((store) => store.author.author);
+  let authores = useSelector((store) => store.author.author); 
   const authoresDate = authores?.date?.split("T")[0];
-
-    useEffect(() => {
+ 
+    useEffect(() => { 
       if (authores) {
-        dispatch(read_author())
+        dispatch(read_author()) 
       }
     }, [reload]) 
 
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { 
     if (authores?.city && authores?.country) {
       setInputValue(`${authores?.city}, ${authores?.country}`);
     }

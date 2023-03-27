@@ -13,8 +13,8 @@ export default function Profile() {
         <div className='profile'>
            <img id="profile-img" src={author.photo} alt="profile" />
             <div className="data-author">
-                <p className="name">{author?.name} {author?.last_name}</p>
-                <p ><img id="icon1" src={location} alt="location" />{author?.city} ,{author?.country}</p>
+                <p className="name">{author?.name},  {author?.last_name}</p>
+                <p ><img id="icon1" src={location} alt="location" />{author?.city} - {author?.country}</p>
                 <p ><img id="icon1" src={date} />{authorDate}</p>
             </div>
         </div>

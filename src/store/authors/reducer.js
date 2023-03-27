@@ -1,17 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
 import AuthorActions from "./actions.js";
 
-const {read_author,update_author} = AuthorActions
+const {read_author,update_author} = AuthorActions 
 
-const initialState ={
+const initialState ={ 
     author: [],
 }
 
-const reducer = createReducer(
+const reducer = createReducer( 
     initialState,
-    (builder)=> builder
+    (builder)=> builder 
     .addCase(
-        read_author.fulfilled,
+        read_author.fulfilled, 
         (state,actions)=>{
             let newState ={
                 ...state,
