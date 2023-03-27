@@ -6,10 +6,10 @@ import Swal from 'sweetalert2'
 export default function DonationCard({donation}) {
 
     async function donateAmount() {
-        // let token = localStorage.getItem('token');
-        // let headers = { headers: { 'Authorization': `Bearer ${token}` } };
+        let token = localStorage.getItem('token');
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } };
         try {
-            await axios.post('http://localhost:8000/payment', donation)
+            await axios.post('http://localhost:8000/payment', donation, headers)
             .then((res)=>window.location.href = res.data.response.body.init_point);
             
             await Swal.fire({

@@ -30,6 +30,7 @@ export default function Donations() {
         {
             title: "Donate $10000",
             description: "Donation to Minga for $10.000 ARS",
+
             price: 10000,
         }
     ]
@@ -55,7 +56,6 @@ export default function Donations() {
             <div className='donationCardsContainer'>
                 {eachDonation.map((donation)=><DonationCard donation={donation}/>)}
             </div>
-
         </Modal>
         </div>
     )
