@@ -40,19 +40,21 @@ export default function Donations() {
         <button className='donateButton' onClick={handleModalOpen}>
             Donate <img src={union} alt='' />
         </button>
-        <Modal isOpen={modalIsOpen} onRequestClose={handleModalClose} className='ModalDonations'>
+        <Modal isOpen={modalIsOpen} onRequestClose={handleModalClose} className='ModalDonations' ariaHideApp={false}>
             <div className='titleContainer'>
                 <div>
                     <img src={logo} alt="logo" />
                 </div>
                 <div className='titleModalDonations'>
                     <h3>Would you like to contribute with us?</h3>
-                    <h4></h4>
                 </div>
                 <div>
                     <button className='closeButton' onClick={handleModalClose}>X</button>
                 </div>
             </div>
+                <div className='subtitleModalDonations'>
+                    <h3>Here you have 3 ways to help MINGA to keep growing.</h3>
+                </div>
             <div className='donationCardsContainer'>
                 {eachDonation.map((donation)=><DonationCard donation={donation}/>)}
             </div>

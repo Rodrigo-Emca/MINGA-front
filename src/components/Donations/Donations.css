@@ -6,7 +6,7 @@
         background-image: url('../../images/donationBackground.png');
         background-size: cover;
 
-        height: 55vh;
+        min-height: 55vh;
         width: 95vw;
         margin: 0px 2rem 0px 2rem;
 
@@ -22,12 +22,17 @@
 .titleContainer{
         width: 95%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
 }
 
 .closeButton{
         height: 2rem;
         width: 2rem;
+
+        position: relative;
+        top: 0rem;
+        right: 0rem;
 }
 
 .titleModalDonations{
@@ -39,6 +44,15 @@
 
         font-size: x-large;
 }
+
+.subtitleModalDonations{
+        display: flex;
+        width: 70%;
+        color: #F97316;
+        text-align: center;
+        justify-content: center;
+}
+
 
 .donateButton{
         min-height: 3rem;
@@ -59,10 +73,12 @@
 .donationCardsContainer{
         display: flex;
         padding: 1rem;
+        flex-wrap: wrap;
 }
 
 .donationCard{
         height: 12rem;
+        width: 16rem;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -71,10 +87,77 @@
         border-radius: 40px;
         margin: 1rem;
         padding: 1.5rem;
-        background: #f2f2f775;
+        background: #f2f2f7ce;
 }
 
 .donationCard>img{
         width: 10rem;
 }
 
+.donationCard>p{
+        text-align: center;
+}
+
+@media (max-width:1023px){
+        .donationCard{
+                height: 12rem;
+                width: 12rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+        }
+}
+
+@media (max-width:767px){
+        .ModalDonations{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-image: url('../../images/donationBackground.png');
+                background-size: cover;
+        
+                min-height: 55vh;
+                max-height: 95vh;
+                width: 95vw;
+                margin: 0px 0.5rem 0px 1rem;
+        
+                position: absolute;
+                top: 5%;
+        }
+
+        .titleContainer{
+                width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: space-between;
+                align-items: center;
+        }
+
+        .titleModalDonations{
+                display: none;
+        }
+
+        .donationCardsContainer{
+                display: flex;
+                padding: 0rem;
+                flex-wrap: nowrap;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        }
+
+        .donationCard{
+                height: 8rem;
+                width: 85%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+        }
+}
+
+@media (max-width:424px){
+
+}
