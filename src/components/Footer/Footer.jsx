@@ -1,6 +1,7 @@
 import React from 'react'
 import './footer.css'
 
+import Donations from '../Donations/Donations'
 import logoMinga from '../../images/logo_dos.svg'
 import facebook from '../../images/Facebook.png'
 import twitter from '../../images/Twitter.png'
@@ -35,7 +36,7 @@ export default function Footer() {
                 <Anchor to='https://www.vimeo.com/'><img src={vimeo} alt="vimeo" /></Anchor>
                 <Anchor to='https://www.youtube.com/'><img src={youtube} alt="youtube" /></Anchor>
               </div>
-              <button>Donate <img src={union} alt="" /></button>
+              <Donations/>
           </div>
       </div>
   </div>
