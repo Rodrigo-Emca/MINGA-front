@@ -1,7 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const isAutor = createAsyncThunk(
+const isAuthor = createAsyncThunk(
     'isAuthor',
     async()=>{
         let token = localStorage.getItem('token')
@@ -19,6 +19,6 @@ const isAutor = createAsyncThunk(
     }
 })
 
-const actions = { isAutor }
+const actions = { isAuthor }
 
 export default actions

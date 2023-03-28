@@ -1,17 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
-import Autors from "./actions.js";
+import Authors from "./actions.js";
 
-const { isAutor } = Autors
+const { isAuthor } = Authors
 
 const initialState ={
     author: [],
 }
 
-const autorReducer = createReducer(
+const authorReducer2 = createReducer(
     initialState,
     (builder)=> builder
     .addCase(
-        isAutor.fulfilled,
+        isAuthor.fulfilled,
         (state,actions)=>{
             let newState ={
                 ...state,
@@ -22,4 +22,4 @@ const autorReducer = createReducer(
     )
 )
 
-export default autorReducer
+export default authorReducer2

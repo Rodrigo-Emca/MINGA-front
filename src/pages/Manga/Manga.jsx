@@ -13,6 +13,8 @@ const {get_chapters} = getChapters
 
 
 export default function Manga() {
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     const { id, page } = useParams();
     const dispatch = useDispatch();
     const [MANGA, setManga] = useState(null);
@@ -89,6 +91,7 @@ export default function Manga() {
     };
     
     return (
+        token ?
         <div className="contenedorGeneral">
             <div className="primerContenedor">
                 <div>
@@ -141,6 +144,6 @@ export default function Manga() {
                     </div>
                 </div>
             )}
-    </div>
+    </div> : window.location.href='/'
     )
 }
