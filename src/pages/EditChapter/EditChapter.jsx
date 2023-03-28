@@ -1,16 +1,29 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import FormEdit from '../../components/FormEdit/FormEdit'
+import axios from "axios";
+// import BtnRedirect from '../../components/BtnRedirect/BtnRedirect'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import actions from '../../store/Autores/actions'
+import { Link as Anchor } from 'react-router-dom'
+import rectangle from "../../images/Rectangle 10 (1).png";
+const {isAutor} = actions
 
 export default function EditChapter() {
+    const dispatch = useDispatch()
+    let author = useSelector(store => store.author.author)
+    console.log(author)
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-    const dispatch = useDispatch()
-    let author = useSelector(store=> store)
-    console.log(author)
+    useEffect(
+        ()=>{
+            if(author){
+                dispatch(isAutor())
+            }
+        },[]
+    )
+    
     return (
-        <div>
-            <FormEdit />
-        </div>
+            token && author?.active ? <FormEdit /> : '<BtnRedirect/>'
 )
 }

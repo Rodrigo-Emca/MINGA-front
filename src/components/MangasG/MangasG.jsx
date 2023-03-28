@@ -1,6 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react'
 import { useParams,Link as Anchor,useNavigate } from 'react-router-dom'
-import './mangasG.css'
+import './MangasG.css'
 import MangaCard from '../MangaCard/MangaCard'
 import MangaChecks from '../MangaChecks/MangaChecks'
 import { useSelector,useDispatch } from 'react-redux'
