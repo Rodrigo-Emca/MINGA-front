@@ -1,7 +1,7 @@
 import React from 'react'
 import FormEdit from '../../components/FormEdit/FormEdit'
 import axios from "axios";
-// import BtnRedirect from '../../components/BtnRedirect/BtnRedirect'
+import BtnRedirect from '../../components/BtnRedirect/BtnRedirect'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from '../../store/Autores/actions'
@@ -24,6 +24,6 @@ export default function EditChapter() {
     )
     
     return (
-            token && author?.active ? <FormEdit /> : '<BtnRedirect/>'
+            token && author?.active ? <FormEdit /> : <BtnRedirect/>
 )
 }

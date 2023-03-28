@@ -1,6 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react'
 import { useParams,Link as Anchor,useNavigate } from 'react-router-dom'
-import './MangasG.css'
+import './mangasG.css'
 import MangaCard from '../MangaCard/MangaCard'
 import MangaChecks from '../MangaChecks/MangaChecks'
 import { useSelector,useDispatch } from 'react-redux'
@@ -19,7 +19,7 @@ export default function Manga() {
     
     useEffect(() => {
         if (page === ':page') {
-          navigate('/mangas/1')
+            navigate('/mangas/1')
         }
     }, [page]);
     
@@ -42,7 +42,7 @@ export default function Manga() {
     }   
 
 
-  return (
+return (
     <div className='manga'>
         <div className='search-manga'>
             <h2 className='name-page'>Mangas</h2>
@@ -67,5 +67,5 @@ export default function Manga() {
             </div> 
         </div>
     </div>
-  )
+)
 }
