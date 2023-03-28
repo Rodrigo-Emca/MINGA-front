@@ -3,10 +3,28 @@ import './menu.css'
 import { Link as Anchor } from 'react-router-dom'
 import LogoutAnchor from '../LogoutAnchor/LogoutAnchor'
 import closeImage from '../../images/Close_btn.png'
+import BtnRedirect from '../../components/BtnRedirect/BtnRedirect'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import actions from '../../store/Autores/actions'
+const {isAuthor} = actions
+
 
 export default function Menu() {
 
+    const dispatch = useDispatch()
+    let author = useSelector(store => store.autor.author)
+    console.log(author)
     let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    useEffect(
+        ()=>{
+            if(author){
+                dispatch(isAuthor())
+            }
+        },[]
+    )
+
     if (!token) {
         localStorage.setItem('user', JSON.stringify({
             name: "",
@@ -21,7 +39,7 @@ export default function Menu() {
     let photo = user.photo
     return (
         <div>
-            {token ?
+            {token && author.active ?
                 (<div className='MenuNavbar'>
                     <div className='EncabezadoMenu'>
                         <div className='subEncabezado'>
@@ -35,23 +53,33 @@ export default function Menu() {
                     </div>
                     <div className='contenedorAnchors'>
                         <Anchor to='/'>Home</Anchor>
-                        <Anchor to='/mangas/0'>Mangas</Anchor>
+                        <Anchor to='/profile'>Profile</Anchor>
+                        <Anchor to='/mangas-form'>Mangas Form</Anchor>
                         <Anchor to='/myMangas/1'>My Mangas</Anchor>
-                        <Anchor to='/'>Favourires</Anchor>
-                        <Anchor to='/chapter-form/:manga_id'>Chapter</Anchor>
-                        <Anchor to='/Profile'>Profile</Anchor>
                         <LogoutAnchor />
                     </div>
                 </div>
-                )
-                : (<div className='MenuNavbar'>
+                ):
+                    token ? (<div className='MenuNavbar'>
+                <div className='EncabezadoMenu2'>
+                    <div className='subEncabezado2'>
+                        <p>M I N G A</p>
+                        <img src={closeImage} alt="" />
+                    </div>
+                    <div className='contenedorAnchors'>
+                        <Anchor to='/  '>Home</Anchor>
+                        <Anchor to='/mangas/0'>Mangas</Anchor>
+                        <LogoutAnchor />
+                    </div>
+                </div>
+            </div>
+            ) : (<div className='MenuNavbar'>
                     <div className='EncabezadoMenu2'>
                         <div className='subEncabezado2'>
                             <p>M I N G A</p>
                             <img src={closeImage} alt="" />
                         </div>
                         <div className='contenedorAnchors'>
-                            <Anchor to='/'>Read</Anchor>
                             <Anchor to='/signup'>Register</Anchor>
                             <Anchor to='/signin'>Login</Anchor>
                         </div>
