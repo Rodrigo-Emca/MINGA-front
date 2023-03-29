@@ -19,7 +19,6 @@ export default function FormularioSignIn() {
                 [mail.current.name]: mail.current.value,
                 [password.current.name]: password.current.value
             }
-            //console.log(data)
             let url_signIn = 'http://localhost:8000/auth/signin'
             try {
                 await axios.post(url_signIn, data)
@@ -71,4 +70,5 @@ export default function FormularioSignIn() {
         </button>
     </form>
 )
-}
+} 
+

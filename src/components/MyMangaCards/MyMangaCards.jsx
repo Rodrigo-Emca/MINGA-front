@@ -147,7 +147,7 @@ export default function MangaCard(props) {
             </Modal>
 
             <Modal isOpen={editModalIsOpen} className='modalEDITE' onRequestClose={() => setEditModalIsOpen(false)} ariaHideApp={false}>
-                {/* <EditModal/> */}
+             
                 <form className='FormularioRegistro' onSubmit={handleSubmit} >
                     <fieldset className='innerFormulario'>
                         <legend>Title</legend>
@@ -159,10 +159,7 @@ export default function MangaCard(props) {
                             <input ref={description} type="text" className='inputsEdit' name='description' placeholder='Write here the new description'/>
                     </fieldset>
 
-                    {/* <fieldset className='innerFormulario'>
-                        <legend>Category</legend>
-                            <input ref={category_id} type="text" className='inputsEdit' name='category_id' placeholder={props.category_.name}/>
-                    </fieldset> */}
+                   
 
                     <fieldset className='innerFormulario'>
                         <legend>Cover_photo</legend>

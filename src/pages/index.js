@@ -13,6 +13,9 @@ import MangaSearch from "./MangaSearch/MangaSearch"
 import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangasPage from './MyMangasPage/MyMangasPage'
+import CompanieForm from './CompanieForm/Companieform'/*  */
+import NewRole from './NewRole/Newrole'  /*  */
+import AdminPanel from './AdminPanel/AdminPanel'/*  */
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -38,7 +41,13 @@ export const router = createBrowserRouter([
         {path: "/profile", element: <AuthorProfile />},
         {path: "/edit/:manga_id", element: <EditChapter/>},
         {path: "/myMangas/:page", element: <MyMangasPage/>},
+        {path: "/create-company", element: <CompanieForm/>},/*  */
+        {path: "/new-role",element: <NewRole/> },/*  */
+        {path: "/admin-panel", element: <AdminPanel />},/*  */
         {path: "/*", element: <NotFound/>}
     ]
 },
 ])
+
+
+
