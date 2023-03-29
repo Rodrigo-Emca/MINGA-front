@@ -28,4 +28,4 @@ export const store = configureStore({
         autor: authorReducer2,
         donations: donationReducer
 },
-});        
+});
