@@ -103,21 +103,6 @@
     cursor: pointer;
 }
 
-.btn-f>button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50%;
-    background-color: #F97316;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    gap: 10px;
-}
-
-
 @media (min-width: 300px) and (max-width: 767px){
     .Img-box {
         width: 100%;
