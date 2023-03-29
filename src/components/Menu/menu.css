@@ -8,12 +8,12 @@
     position: absolute;
     width: 425px;
     height: 100vh;
+    height: 100vh;
     left: 0rem;
     top: -2rem;
-    z-index: 100;
+    z-index: 110;
     background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
     border-radius: 10px;
-
     animation-name: example;
     animation-duration: 4s;
 }
@@ -48,6 +48,7 @@
     height: 40%;
     align-items: center;
     flex-direction: column;
+    gap: 2rem;
     gap: 2rem;
 }
 
