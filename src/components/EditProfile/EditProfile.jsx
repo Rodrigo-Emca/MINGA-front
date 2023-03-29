@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import './editprofile.css'
 import { useRef, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import authorAction from '../../store/authors/actions'
+import authorAction from '../../store/Author/actions'
 import { useNavigate } from 'react-router-dom'
 const { read_author, update_author } = authorAction
 

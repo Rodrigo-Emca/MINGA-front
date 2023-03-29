@@ -6,7 +6,7 @@ import date from '../../images/date-author.png'
 
 
 export default function Profile() {
-    let author = useSelector(store => store.author.author)
+    let author = useSelector(store => store.Author.author)
     const authorDate = author?.date?.split('T')[0]
 
     return (

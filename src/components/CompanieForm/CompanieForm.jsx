@@ -27,7 +27,6 @@ export default function CompanyForm() {
 
     try {
       const response = await axios.post(url, data, headers);
-      //const company = response.data.data;
       swal("Success!", "Company created successfully!", "success");
       formRef.current.reset();
     } catch (error) {
@@ -39,7 +38,6 @@ return (
     <div id="container-companyform">
       <form ref={formRef} id="company-form" onSubmit={handleSubmit}>
         <h1>New Company</h1>
-        {/* <img src="./default-profile.png" alt="profile" /> */}
         <input
           ref={name}
           name="name"

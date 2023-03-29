@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './imputActive.css';
 import captureActions from '../../store/Capture/actions.js';
-import updateAuthor from '../../store/authors/actions.js';
+import updateAuthor from '../../store/Author/actions.js';
 import updateCompany from '../../store/Company/actions.js';
 
 const { captureState } = captureActions;
@@ -20,7 +20,7 @@ export default function InputActive({ item, author }) {
   function handleActive() {
     try {
       setActive(!active);
-
+      
       dispatch(captureState({ buttonState: !active }));
       if(author){
         dispatch(update_active_author({ _id: item._id, active: !active }));
@@ -41,4 +41,5 @@ export default function InputActive({ item, author }) {
     </>
   );
 }
+
 

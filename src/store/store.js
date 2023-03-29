@@ -8,14 +8,16 @@ import chapterReducer from './Chapters/reducers'
 import editReducer from "./Edit/reducer";
 import getMyMangas from './MyMangas/reducer'
 import modalDeleteReducer from './DeleteManga/reducer'
-import authorReducer from './authors/reducer'//G
+import authorReducer from './Author/reducer'
 import companyReducer from "./Company/reducer";
+import captureState from "./Capture/reducer";
+
 
 
 export const store = configureStore({
     reducer:{
         text: textReducer,
-        mangas: mangasReducer,//G
+        mangas: mangasReducer,
         checks: checkReducer, 
         alert: alertReducer,
         manga: mangaReducer,
@@ -23,8 +25,10 @@ export const store = configureStore({
         edit: editReducer,    
         myMangas: getMyMangas,
         modalDeleteState: modalDeleteReducer,
-        author: authorReducer,//G,
-        Company: companyReducer
+        Author: authorReducer,
+        Company: companyReducer,
+        checked: captureState,
+      
 
     }
 })

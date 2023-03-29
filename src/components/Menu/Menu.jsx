@@ -39,7 +39,8 @@ export default function Menu() {
                         <Anchor to='/myMangas/1'>My Mangas</Anchor>
                         <Anchor to='/'>Favourires</Anchor>
                         <Anchor to='/chapter-form/:manga_id'>Chapter</Anchor>
-                        <Anchor to='/Profile'>Profile</Anchor>
+                        <Anchor to='/admin-panel'>Admin</Anchor>
+                        <Anchor to='/new-role'>New Role</Anchor>
                         <LogoutAnchor />
                     </div>
                 </div>

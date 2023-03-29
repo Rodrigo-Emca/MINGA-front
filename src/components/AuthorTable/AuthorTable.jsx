@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import './authorTable.css'
 
 export default function AuthorTable() {
-  const activeData = useSelector(store => store.author.activeAuthor);
-  const inactiveData = useSelector(store => store.author.inactiveAuthor);
+  const activeData = useSelector(store => store.Author.activeAuthor);
+  const inactiveData = useSelector(store => store.Author.inactiveAuthor);
 
   const allData = inactiveData && activeData ? [...Object.values(inactiveData), ...Object.values(activeData)].sort((a, b) => a.active - b.active) : [];
 
