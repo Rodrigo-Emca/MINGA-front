@@ -1,4 +1,4 @@
-.card-container{
+.card-container {
     width: 23rem;
     height: 14rem;
     display: flex;
@@ -7,19 +7,20 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
     border-radius: 10px;
 }
-.span-card{
+
+.span-card {
     height: 17.78vh;
     width: 0.4vw;
     background: #F97316;
 }
 
-.span{
+.span {
     height: 9rem;
     width: 0.3rem;
     background: #F97316;
 }
 
-.inf-card{
+.inf-card {
     width: 11rem;
     height: 11rem;
     display: flex;
@@ -30,36 +31,37 @@
     padding-top: 4vh;
 }
 
-.img-card{
+.img-card {
     width: 12rem;
     height: 11rem;
     object-fit: cover;
     object-position: center;
     border-radius: 90px 10px 10px 90px;
-    
+
 }
 
-.title-card{
+.title-card {
     width: 10rem;
     text-align: left;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    position:relative;
-    top:3.7rem;
+    position: relative;
+    top: 3.7rem;
 }
-.category-card{
-    font-family:Arial, Helvetica, sans-serif;
+
+.category-card {
+    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     color: #F97316;
-    position:relative;
+    position: relative;
     bottom: 2.5rem;
 }
 
-.type-card{
+.type-card {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -67,22 +69,25 @@
     line-height: 95.19%;
 }
 
-.contenedorMiniBottons{
+.contenedorMiniBottons {
     display: flex;
     width: 40%;
     justify-content: space-between;
 }
-.btn-card-mini{
+
+.btn-card-mini {
     width: 1.5rem;
     height: 1.5rem;
     border: 2px solid #222222;
     background-color: transparent;
     border-radius: 50%;
 }
-.btn-card-mini>img{
+
+.btn-card-mini>img {
     width: 50%;
 }
-.contenedorBottons{
+
+.contenedorBottons {
     display: flex;
     justify-content: space-evenly;
     position: relative;
@@ -90,17 +95,17 @@
     top: -1.5rem;
 }
 
-.btn-card-editar{
+.btn-card-editar {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
     padding: 12px;
     gap: 10px;
-    
+
     width: 70px;
     height: 35px;
-    
+
     background: #E0DBFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 50px;
@@ -112,17 +117,17 @@
     color: #8883F0;
 }
 
-.btn-card-eliminar{
+.btn-card-eliminar {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
     padding: 12px;
     gap: 10px;
-    
+
     width: 70px;
     height: 35px;
-    
+
     background: #FBDDDC;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 50px;
@@ -134,60 +139,66 @@
     color: #EE8380;
 }
 
-.red-span{
-    background-color:#EF8481 ;
-}
-.orange-span{
-    background-color:#FC9C57 ;
-}
-.green-span{
-    background-color:#00BA88 ;
-}
-.purple-span{
-    background-color:#8883F0;
+.red-span {
+    background-color: #EF8481;
 }
 
-.red-type{
+.orange-span {
+    background-color: #FC9C57;
+}
+
+.green-span {
+    background-color: #00BA88;
+}
+
+.purple-span {
+    background-color: #8883F0;
+}
+
+.red-type {
     color: #EF8481;
 }
-.orange-type{
+
+.orange-type {
     color: #FC9C57;
 }
-.green-type{
+
+.green-type {
     color: #00BA88;
 }
-.purple-type{
+
+.purple-type {
     color: #8883F0;
 }
 
 /* MODAL DE DELETE */
-.modalDeConfirmaciónDelete{
+.modalDeConfirmaciónDelete {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
-    
+
     position: absolute;
     width: 371px;
     height: 138px;
     left: calc(50% - 371px/2 + 0.5px);
     top: calc(50% - 338px/2);
-    
+
     background: #F2F2F7;
     backdrop-filter: blur(27.1828px);
 
     border-radius: 14px;
 }
 
-.innerModal{
+.innerModal {
     width: 80%;
     height: 80%;
     display: flex;
     flex-direction: column;
 }
 
-.textModal{
+.textModal {
     height: 70%;
     display: flex;
     text-align: center;
@@ -199,7 +210,7 @@
     line-height: 18px;
 }
 
-.modalButtons{
+.modalButtons {
     height: 30%;
     display: flex;
     justify-content: space-evenly;
@@ -236,33 +247,33 @@
 }
 
 /* MODAL DE EDICIÓN */
-.modalEDITE{
+.modalEDITE {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
-    
+
     position: absolute;
     width: 400px;
     height: 500px;
     left: calc(50% - 371px/2 + 0.5px);
     top: calc(50% - 500px/2);
-    
+
     background: #F2F2F7;
     backdrop-filter: blur(27.1828px);
 
     border-radius: 14px;
 }
 
-.innerFormulario>legend{
+.innerFormulario>legend {
     font-size: large;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
 }
 
-.inputsEdit{
+.inputsEdit {
     outline: #222222;
     border: red !important;
     width: 90%;
@@ -272,22 +283,27 @@
     margin-bottom: 0.1rem;
 }
 
-.SignUpButton{
-    background-color: transparent;
+.SignUpButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 1px #f8a56a;
     border: none;
-    color: #EE8380;
+    color: #fff;
 
-    width: 169.25px;
-    height: 22px;
+    width: auto;
+    height: 38px;
 
     font-family: 'Ubuntu';
     font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
+    font-weight: 700;
+    font-size: 14px;
     line-height: 22px;
 }
 
-.botonModalCANCEL{
+.botonModalCANCEL {
     background-color: transparent;
     border: none;
     color: #0A7AFF;
@@ -302,25 +318,30 @@
     line-height: 22px;
 }
 
-.FormularioRegistro{
+.FormularioRegistro {
     width: 90%;
+    margin: 0 auto;
 }
 
 
-@media (max-width:1023px){
-    .card{
+@media (max-width:1023px) {
+    .card {
         width: 50vw;
     }
-    .span-card{
+
+    .span-card {
         width: 0.8vw;
     }
-    .inf-card{
+
+    .inf-card {
         width: 25vw;
     }
-    .img-card{
+
+    .img-card {
         width: 25vw;
     }
-    .card-container{
+
+    .card-container {
         width: 100%;
         display: flex;
         align-items: center;
@@ -328,23 +349,28 @@
     }
 }
 
-@media (max-width:767px){
-    .card{
+@media (max-width:767px) {
+    .card {
         width: 80vw;
     }
-    .span-card{
+
+    .span-card {
         width: 0.8vw;
     }
-    .inf-card{
+
+    .inf-card {
         width: 30vw;
     }
-    .img-card{
+
+    .img-card {
         width: 32vw;
     }
-    .card-container{
+
+    .card-container {
         width: 100vw;
     }
-    .modalEDITE{
+
+    .modalEDITE {
         width: 90vw;
         height: 550px;
         top: calc(50% - 600px/2);
@@ -352,19 +378,22 @@
     }
 }
 
-@media (max-width:424px){
-    .card{
+@media (max-width:424px) {
+    .card {
         height: 20vh;
     }
-    .span-card{
+
+    .span-card {
         width: 1vw;
         height: 14vh;
     }
-    .inf-card{
+
+    .inf-card {
         height: 20vh;
         padding-top: 4vh;
     }
-    .img-card{
+
+    .img-card {
         height: 20vh;
     }
 }
