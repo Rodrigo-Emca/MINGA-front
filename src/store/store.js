@@ -9,6 +9,7 @@ import editReducer from "./Edit/reducer";
 import getMyMangas from './MyMangas/reducer'
 import modalDeleteReducer from './DeleteManga/reducer'
 import authorReducer from './authors/reducer'//G
+import donationReducer from './Donations/Reducer'
 
 export const store = configureStore({
     reducer:{
@@ -21,6 +22,7 @@ export const store = configureStore({
         edit: editReducer,    
         myMangas: getMyMangas,
         modalDeleteState: modalDeleteReducer,
-        author: authorReducer//G
+        author: authorReducer,//G
+        donations: donationReducer
     }
 })

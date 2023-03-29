@@ -5,7 +5,7 @@ const get_manga = createAsyncThunk(
     'get_manga',
     async({ inputId }) => {
         try {
-            let response = await axios.get('http://localhost:8000/mangas/:id?_id='+inputId)
+            let response = await axios.get(`http://localhost:8000/mangas/${inputId}`)
             return {
                 manga: response.data.mangas
             }
