@@ -25,7 +25,7 @@ export default function FormChapter() {
             chapter[order.current.name] = order.current.value
         }
         console.log(chapter)
-        let url = 'http://localhost:8000/chapters'
+        let url = 'https://minga-back-446z.onrender.com/chapters'
         let token = localStorage.getItem('token')
         let headers = {headers: {'Authorization': `Bearer ${token}`}}
         try{

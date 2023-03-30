@@ -7,7 +7,6 @@ import getManga from '../../store/Manga/actions'
 import getChapters from '../../store/Chapters/actions'
 import CHAPTERStats from "../../images/CHAPTERStats.png";
 import CHAPTERreactions from "../../images/CHAPTERreactions.png";
-import { store } from "../../store/store";
 const {get_manga} = getManga
 const {get_chapters} = getChapters
 

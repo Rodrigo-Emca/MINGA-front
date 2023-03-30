@@ -9,8 +9,8 @@ function LogoutAnchor() {
     async function handleLogout(){
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
-        let url = 'http://localhost:8000/auth/signout'
-        let urlToken = 'http://localhost:8000/auth/token'
+        let url = 'https://minga-back-446z.onrender.com/auth/signout'
+        let urlToken = 'https://minga-back-446z.onrender.com/auth/token'
         
         try {
             await axios.post(urlToken,"",headers)

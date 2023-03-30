@@ -5,7 +5,7 @@ import axios from "axios";
 const read_mangas = createAsyncThunk(
     'read_mangas',
     async({inputText,inputCheck,inputPage}) => {
-        let url = `http://localhost:8000/mangas/read?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
+        let url = `https://minga-back-446z.onrender.com/mangas/read?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try{
             let response = await axios.get(url)
             return{

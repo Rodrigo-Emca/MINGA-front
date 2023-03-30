@@ -31,7 +31,7 @@ function AuthorForm() {
       let token = localStorage.getItem('token')
       let headers = {headers: {'Authorization': `Bearer ${token}`}}
     axios
-      .post("http://localhost:8000/api/authors", author, headers)
+      .post("https://minga-back-446z.onrender.com/api/authors", author, headers)
       .then((response) => {
         setAuthorCreated(true);
         console.log(response.data);

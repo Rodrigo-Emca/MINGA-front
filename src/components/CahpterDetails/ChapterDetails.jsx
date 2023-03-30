@@ -10,7 +10,7 @@ import comentarios from '../../images/comentarios.svg'
 export default function ChapterDetails() {
     let navigate = useNavigate()
     let { id, page } = useParams()
-    let url = `http://localhost:8000/chapters/`
+    let url = `https://minga-back-446z.onrender.com/chapters/`
     let [Chapter, setChapter] = useState({})
     let [index, setIndex] = useState(Number(page))
     let [next, setNext] = useState('')

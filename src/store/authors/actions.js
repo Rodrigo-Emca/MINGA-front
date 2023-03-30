@@ -6,7 +6,7 @@ const read_author = createAsyncThunk(
     async () => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8000/api/authors/me'
+        let url = 'https://minga-back-446z.onrender.com/api/authors/me'
         try{
             let response = await axios.get(url,headers)
             return{
@@ -26,7 +26,7 @@ const update_author = createAsyncThunk(
         let token = localStorage.getItem('token') 
         let headers = { headers: { 'Authorization': `Bearer ${token}` } } 
         console.log(headers)
-        let url = 'http://localhost:8000/api/authors/me'
+        let url = 'https://minga-back-446z.onrender.com/api/authors/me'
        
         try{
             let response = await axios.put(url,data,headers)

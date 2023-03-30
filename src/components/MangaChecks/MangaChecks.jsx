@@ -9,7 +9,7 @@ const {captureChecks} = checkActions
 export default function MangaChecks(props) {
 
     const dispatch = useDispatch()
-    let url = 'http://localhost:8000/mangas'
+    let url = 'https://minga-back-446z.onrender.com/mangas'
 
         let [ categories, setCategories ] = useState([])
             useEffect(

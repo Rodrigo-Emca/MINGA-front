@@ -8,7 +8,7 @@ export default function DonationCard({donation}) {
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
         try {
-            await axios.post('http://localhost:8000/payment', donation, headers)
+            await axios.post('https://minga-back-446z.onrender.com/payment', donation, headers)
             .then(async (res)=>{
                 await Swal.fire({
                     icon: 'success',
