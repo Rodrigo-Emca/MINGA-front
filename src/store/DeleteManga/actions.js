@@ -4,7 +4,7 @@ import axios from 'axios';
 export const deleteManga = createAsyncThunk(
     'deleteManga',
     async (id, token) => {
-        let urlDelete = `http://localhost:8000/mangas/${id}`;
+        let urlDelete = `https://minga-back-446z.onrender.com/mangas/${id}`;
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
         try {
         await axios.delete(urlDelete, headers);

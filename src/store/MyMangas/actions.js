@@ -6,7 +6,7 @@ const my_mangas = createAsyncThunk(
     async ({ token }) => {
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         try{
-            let response = await axios.get("http://localhost:8000/mangas/me" , headers)
+            let response = await axios.get("https://minga-back-446z.onrender.com/mangas/me" , headers)
             return { mangas: response.data.mangas}
         }catch(error){
             return{

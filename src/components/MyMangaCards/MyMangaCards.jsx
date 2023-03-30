@@ -56,7 +56,7 @@ export default function MangaCard(props) {
         }
     
         let token = localStorage.getItem('token');
-        let urlEdit = 'http://localhost:8000/mangas/'+`${props._id}`;
+        let urlEdit = 'https://minga-back-446z.onrender.com/mangas/'+`${props._id}`;
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
         try {
             await axios.put(urlEdit, data, headers)
@@ -80,7 +80,7 @@ export default function MangaCard(props) {
 
     async function handleDelete() {
         let token = localStorage.getItem('token');
-        let urlDelete = 'http://localhost:8000/mangas/'+`${props._id}`;
+        let urlDelete = 'https://minga-back-446z.onrender.com/mangas/'+`${props._id}`;
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
         try {
             await axios.delete(urlDelete, headers);

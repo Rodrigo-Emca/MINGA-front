@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 export default function Select(props) {
 
-    let url = "http://localhost:8000/mangas"
+    let url = "https://minga-back-446z.onrender.com/mangas"
 
     let [categories, setCategories] = useState([])
 

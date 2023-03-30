@@ -6,7 +6,7 @@ import SignIn from "./SignIn/SignIn";
 import NotFound from "./NotFound/NotFound";
 import FormMangaPage from "./FormMangaPage/FormMangaPage"
 import ChapterForm from "./FormChapter/FormChapter";
-import AuthorForm from "./AuthorForm/AuthorForm";
+import AuthorFormG from "./AuthorFormG/AuthorFormG"; /*  */
 import Pagina from "./Pagina/Pagina";
 import Manga from "./Manga/Manga";
 import MangaSearch from "./MangaSearch/MangaSearch"
@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         {path: "/signin", element: <SignIn/>},
         {path: "/mangas-form", element: <FormMangaPage/>},
         {path: "/mangas", element: <FormMangaPage/>},
-        {path: "/author-form", element: <AuthorForm/>},
+        {path: "/author-form", element: <AuthorFormG/>},
         {path: "/chapters/:id/:page", element: <Pagina/>},
         {path: "/manga/:id/:page", element: <Manga/>},
         {path: "/chapter-form/:manga_id", element: <ChapterForm />},

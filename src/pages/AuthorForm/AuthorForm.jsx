@@ -1,10 +1,35 @@
 import {useRef} from "react";
 import "./AuthorForm.css";
 import axios from "axios";
-import alertActions from "../../store/Alert/actions";
-import { useDispatch } from "react-redux";
+import BtnRedirect from '../../components/BtnRedirect/BtnRedirect'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import actions from '../../store/Autores/actions'
+import { Link as Anchor } from 'react-router-dom'
+import rectangle from "../../images/Rectangle 10 (1).png";
+const {isAuthor} = actions
 
-const { open } = alertActions;
+function AuthorForm() {
+
+    const dispatch = useDispatch()
+    let author = useSelector(store => store.autor.author)
+    console.log(author)
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    useEffect(
+        ()=>{
+            if(author){
+                dispatch(isAuthor())
+            }
+        },[]
+    )
+
+  const [authorCreated, setAuthorCreated] = useState(false);
+  const nameRef = useRef();
+  const lastNameRef = useRef();
+  const cityCountryRef = useRef();
+  const birthdateRef = useRef();
+  const imageUrlRef = useRef();
 
 export default function AuthorForm() {
   const firstName = useRef();
@@ -30,7 +55,7 @@ export default function AuthorForm() {
         [date.current.name]: date.current.value,
         [urlProfile.current.name]: urlProfile.current.value,
       };
-      let url = "http://localhost:8000/authors";
+      let url = "https://minga-back-446z.onrender.com/authors";
       try {
         await axios.post(url, data, headers);
         formRef.current.reset();
@@ -43,51 +68,47 @@ export default function AuthorForm() {
     }
   }
   return (
-    <div id="container-authorform">
-      <form ref={formRef} id="author-form" onSubmit={handleSubmit}>
-        <h1>New Author</h1>
-       {/*  <img src="./default-profile.png" alt="profile" /> */}
-        <input
-          ref={firstName}
-          name="name"
-          className="inputAuthorForm"
-          type="text"
-          placeholder="First Name"
-          required
-        />
-        <input
-          ref={lastName}
-          name="last_name"
-          className="inputAuthorForm"
-          type="text"
-          placeholder="Last Name"
-          required
-        />
-        <input
-          ref={cityCountry}
-          name="city_country"
-          className="inputAuthorForm"
-          type="text"
-          placeholder="City, Country"
-          required
-        />
-        <input
-          name="date"
-          ref={date}
-          className="inputAuthorForm"
-          type="date"
-          required
-        />
-        <input
-          ref={urlProfile}
-          name="photo"
-          className="inputAuthorForm"
-          type="text"
-          placeholder="URL Profile Image"
-          required
-        />
-        <input id="button-author" type="submit" value="Send" />
-      </form>
-    </div>
+    token ?
+    <div className="container">
+      <div className="form-container">
+        <h1>New author</h1>
+        <div className="image-container">
+          <img src={rectangle} alt="Author Profile" className="image" />
+        </div>
+        <form onSubmit={handleSubmit}>
+          <AuthorNameInput
+            nameRef={nameRef}
+            lastNameRef={lastNameRef}
+            className="author-input"
+            Id="author-name"
+          />
+          <AuthorCityCountryInput
+            onInputChange={(city, country) => {
+              cityCountryRef.current.value = `${city}, ${country}`;
+            }}
+            ref={cityCountryRef}
+            className="author-input"
+            id="author-location"
+
+          />
+          <AuthorBirthDateInput
+            ref={birthdateRef}
+            className="author-input, author-birthdate"
+          />
+          <AuthorImageUrlInput
+            ref={imageUrlRef}
+            className="author-input, author-birthdate"
+          />
+          <button type="submit" className="author-submit-button">
+            Send
+          </button>
+        </form>
+        {authorCreated && (
+          <p className="author-created-message">
+            Author created successfully!
+          </p>
+        )}
+      </div>
+    </div> : <BtnRedirect/>
   );
 }

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const read_author = createAsyncThunk("read_author", async ({ author_id }) => {
   try {
-    let res = await axios.get("http://localhost:8000/authors/" + author_id);
+    let res = await axios.get("https://minga-back-446z.onrender.com/authors/" + author_id);
     return { author: res.data.data };
   } catch (error) {
     return { author: [] };
@@ -15,7 +15,7 @@ const read_all_authors = createAsyncThunk("read_all_authors", async () => {
   try {
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-    let res = await axios.get("http://localhost:8000/authors/admin/prueba", headers);
+    let res = await axios.get("https://minga-back-446z.onrender.com/authors/admin/prueba", headers);
     return { active_authors: res.data.authorActive, inactive_authors: res.data.authorInactive };
   } catch (error) {
     console.log(error)
@@ -29,7 +29,7 @@ const update_author = createAsyncThunk(
   async ({ data }) => {
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-    let url = 'http://localhost:8000/authors/me'
+    let url = 'https://minga-back-446z.onrender.com/authors/me'
     try {
       let response = await axios.put(url, data, headers)
       return {
@@ -52,7 +52,7 @@ const update_active_author = createAsyncThunk(
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     try {
-      let response = await axios.put(`http://localhost:8000/authors/admin/${_id}`, { active: active }, headers);
+      let response = await axios.put(`https://minga-back-446z.onrender.com/authors/admin/${_id}`, { active: active }, headers);
       return {
         author: response.data.author,
         success: true

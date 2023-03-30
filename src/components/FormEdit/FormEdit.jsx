@@ -23,8 +23,8 @@ export default function FormEdit() {
     let editDate = useRef()
     chapter = useSelector(store => store.chapters.chapter)
     console.log(chapter)
-    // let url = `http://localhost:8000/chapters?manga_id=${manga_id}&quantity=${0}`
-    let url2 = `http://localhost:8000/mangas/${manga_id}`
+    // let url = `https://minga-back-446z.onrender.com/chapters?manga_id=${manga_id}&quantity=${0}`
+    let url2 = `https://minga-back-446z.onrender.com/mangas/${manga_id}`
     let [chapters, setChapter] = useState({})
     let [cover_photo, setCover_photo] = useState({})
     let [order, setOrder] = useState(chapter?.[0]._id)
@@ -54,7 +54,7 @@ export default function FormEdit() {
 
     useEffect(
         () => {
-            axios.get('http://localhost:8000/chapters/' + order)
+            axios.get('https://minga-back-446z.onrender.com/chapters/' + order)
                 .then(res => setNewOrder(res.data.chapter))
                 .catch(error => console.log(error))
         }, [reload]

@@ -8,7 +8,7 @@ const editChapter = createAsyncThunk(
         let token = localStorage.getItem('token')
         let headers = {headers: {'Authorization': `Bearer ${token}`}}
         try{
-            let res = await axios.put('http://localhost:8000/chapters/' + chapter_id, data, headers)
+            let res = await axios.put('https://minga-back-446z.onrender.com/chapters/' + chapter_id, data, headers)
             console.log(res)
             return { chapter: res.data.upd }
         }
@@ -25,7 +25,7 @@ const deleteChapter = createAsyncThunk(
         let token = localStorage.getItem('token')
         let headers = {headers: {'Authorization': `Bearer ${token}`}}
         try{
-            let res = await axios.delete('http://localhost:8000/chapters/' + chapter_id, headers)
+            let res = await axios.delete('https://minga-back-446z.onrender.com/chapters/' + chapter_id, headers)
             return {delete: 'Delete'}  
         }
         catch(error){
