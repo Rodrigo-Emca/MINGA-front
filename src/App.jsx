@@ -1,15 +1,17 @@
 import './App.css';
-import Index from './components/Index/Index';
-import IndexLayout from './layouts/IndexLayout/IndexLayout';
+import {router} from './pages/index'
+import { RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';  
+import { store} from './store/store'
 
 function App() {
   return (
-    <div className="App">
-      <IndexLayout>
-        <Index/>
-      </IndexLayout>
-    </div>
-  );
+    
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    
+  )
 }
 
 export default App;

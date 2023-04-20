@@ -1,0 +1,48 @@
+
+.RegisterContainerGeneral {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Seccion 1: Registro */
+.Register{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContainerFormulario{
+    width: 62%;
+}
+
+/* Seccion 2: Imagen Registro */
+.ImagenRegister{
+    width: 50%;
+    height: 100vh;
+}
+
+.imagenTotoro{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+@media (max-width:767px ) {
+    .Register{
+        width: 100%;
+    }
+    .ContainerFormulario{
+        width: 80%;
+        height: 85vh;
+    }
+    .ImagenRegister{
+        display: none;
+    }
+    .EncabezadoFormulario>img{
+        display: none;
+    }
+}

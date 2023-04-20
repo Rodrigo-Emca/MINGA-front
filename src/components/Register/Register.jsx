@@ -4,6 +4,7 @@ import FormularioRegistro from '../FormularioRegistro/FormularioRegistro';
 import FormularioEncabezado from '../FormularioEncabezado/FormularioEncabezado';
 import FormularioBase from '../FormularioBase/FormularioBase';
 
+
 import imagenRegistro from '../../images/imagenRegister.svg'
 
 
@@ -15,6 +16,8 @@ export default function Register() {
                 <FormularioEncabezado/>
                 <FormularioRegistro/>
                 <FormularioBase/>
+        
+                
             </div>
         </div>
         <div className='ImagenRegister'>

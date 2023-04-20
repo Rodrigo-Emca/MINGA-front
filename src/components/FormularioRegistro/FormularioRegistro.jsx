@@ -2,15 +2,18 @@ import {useRef} from 'react'
 import './formularioRegistro.css'
 import axios from 'axios'
 
+import Swal from 'sweetalert2'
 import imgGoogle from '../../images/Google.png'
 import profileIcon from '../../images/profile.png'
 import emailIcon from '../../images/@.png'
+import cameraIcon from '../../images/camera.png'
 import passwordIcon from '../../images/lock1.png'
 
 export default function FormularioRegistro() {
 
     let name = useRef()
-    let email = useRef()
+    let mail = useRef()
+    let photo = useRef()
     let password = useRef()
 
 async function handleSubmit(event) {
@@ -18,16 +21,27 @@ async function handleSubmit(event) {
 
         let data = {
             [name.current.name]: name.current.value,
-            [email.current.name]: email.current.value,
+            [mail.current.name]: mail.current.value,
+            [photo.current.name]: photo.current.value,
             [password.current.name]: password.current.value
         }
         console.log(data)
-        let url = 'http://localhost:8080/users/'
+        let url = 'https://minga-back-446z.onrender.com/auth/signup'
         try {
             await axios.post(url, data)
+            Swal.fire({
+                icon: 'success',
+                title: 'ÉXITO',
+                text: 'Usuario creado correctamente'
+            })
         } catch(error) {
-            console.log(error)
+            let err = error.response.data.message
             console.log('Ocurrió un error')
+            Swal.fire({
+                icon: 'error',
+                title: '¡Lo sentimos!',
+                text: err
+            })
         }
     }
 
@@ -41,18 +55,18 @@ async function handleSubmit(event) {
 
         <fieldset className='innerFormulario'>
             <legend>Email</legend>
-                <input ref={email} type="email" className='inputs' name='email' required/>
+                <input ref={mail} type="email" className='inputs' name='mail' required/>
                 <img src={emailIcon} alt="emailIcon" className='icon'/>
+        </fieldset>
+
+        <fieldset className='innerFormulario'>
+            <legend>Photo</legend>
+                <input ref={photo} type="url" className='inputs' name='photo' required/>
+                <img src={cameraIcon} alt="photoIcon" className='icon'/>
         </fieldset>
             
         <fieldset className='innerFormulario'>
             <legend>Password</legend>
-                <input ref={password} type="password" className='inputs' name='password' required/>
-                <img src={passwordIcon} alt="passwordIcon" className='icon'/>
-        </fieldset>
-
-        <fieldset className='innerFormulario'>
-            <legend>Confirm Password</legend>
                 <input ref={password} type="password" className='inputs' name='password' required/>
                 <img src={passwordIcon} alt="passwordIcon" className='icon'/>
         </fieldset>

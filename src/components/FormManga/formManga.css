@@ -1,0 +1,46 @@
+.title-manga{
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.FormularioRegistro-m{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 10px;
+    width: 50%;
+    padding-top: 10rem;
+    margin: auto;
+}
+
+.inputs-m{
+    width: 90%;
+    height: 20px;
+    padding-left: 0.5rem;
+    margin-bottom: 0.1rem;
+    border: transparent;
+    border-bottom: 1px  solid black;
+}
+
+
+.SignUpButton-m{
+    background: #F97316;
+    border: none;
+    border-radius: 20px;
+    width: 30%;
+    height: 40px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    margin: auto;
+  
+}
+
+.inputs-m2{
+    display: none;
+}
+
+ 

@@ -93,3 +93,10 @@
     font-size: 14px;
     opacity: 0.5;
 }
+
+.swal2-title {
+    margin: 0 auto !important;
+}
+.swal2-styled.swal2-confirm {
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%) !important;
+}
